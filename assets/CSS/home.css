@@ -1,0 +1,119 @@
+/*################################### Footter ################################ */
+footer {
+  padding: 7em 0;
+}
+footer li {
+  list-style: none;
+}
+footer li span {
+  margin: 20px;
+}
+.footer {
+  background: #2a1a5e;
+  background: -moz-linear-gradient(45deg, #2a1a5e 0%, #5126a7 100%);
+  background: -webkit-gradient(
+    left bottom,
+    right top,
+    color-stop(0%, #2a1a5e),
+    color-stop(100%, #5126a7)
+  );
+  background: -webkit-linear-gradient(45deg, #2a1a5e 0%, #5126a7 100%);
+  background: -o-linear-gradient(45deg, #2a1a5e 0%, #5126a7 100%);
+  background: -ms-linear-gradient(45deg, #2a1a5e 0%, #5126a7 100%);
+  background: linear-gradient(45deg, #2a1a5e 0%, #5126a7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a1a5e', endColorstr='#5126a7', GradientType=1 );
+}
+.footer .border-top {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.footer a {
+  color: #fe59d7;
+}
+.footer a:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+.footer p {
+  color: rgba(255, 255, 255, 0.3);
+}
+.footer .footer-heading {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+.footer .footer-heading .icon {
+  width: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+  height: 40px;
+  display: block;
+  color: #fe59d7;
+  border: 1px solid #fe59d7;
+}
+.footer ul.list-unstyled li a {
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer .block-21 .heading a {
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer .block-21 .meta div a {
+  color: rgba(255, 255, 255, 0.3);
+}
+.footer .block-23 ul li {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer .subscribe-form .form-group input {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border: 2px solid #fe8ce3 !important;
+  outline: none !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  font-size: 16px;
+  border-radius: 0;
+}
+
+.footer .subscribe-form .form-group input:focus {
+  outline: none !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.footer .subscribe-form .form-group .submit {
+  color: #fff !important;
+  display: block;
+  width: 52px;
+  height: 52px;
+  font-size: 16px;
+  background: #fe8ce3 !important;
+  border: none;
+  border-radius: 0;
+}
+
+.block-21 .text .heading {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.footer .block-21 .heading a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.block-21 .img {
+  display: block;
+  height: 80px;
+  width: 80px;
+}
+
+.block-21 .text .meta > div {
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.block-23 ul {
+  padding: 0;
+}
+
+.block-24 a.img {
+  width: 100%;
+  height: 100px;
+  display: block;
+}

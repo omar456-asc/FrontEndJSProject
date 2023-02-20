@@ -19,11 +19,7 @@
   color: #fff;
 }
 /* Right form */
-#contactForm .form-control {
-  border: none;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  padding: 0;
-}
+
 .form-control,
 .form-control:focus {
   height: 52px;
