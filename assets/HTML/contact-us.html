@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Reset file for css -->
+    <link rel="stylesheet" href="../CSS/reset.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css" />
+    <!-- fontAwsome -->
+    <link rel="stylesheet" href="../fontawesome/all.min.css" />
+    <!-- contact us Style -->
+    <link rel="stylesheet" href="../CSS/contact-us.css" />
+  </head>
+  <body>
+    <section id="contact-section">
+      <div class="container">
+        <h2 class="text-center p-3">We are happy to hear from you !!</h2>
+        <div class="row">
+          <div class="col-md-6 p-1 left-sec">
+            <h3 class="p-3 m-4 text-light">Send us a message</h3>
+
+            <div id="form-message-success" class="m-4">
+              Your message was sent, thank you!
+            </div>
+            <form action="" id="contactForm">
+              <div class="form-group px-3 my-3">
+                <input
+                  type="text"
+                  class="form-control p-2"
+                  name="name"
+                  id="name"
+                  placeholder="Enter Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group px-3 my-3">
+                <input
+                  type="email"
+                  class="form-control p-2"
+                  name="email"
+                  id="email"
+                  placeholder="Enter your Email to contact you"
+                  required
+                />
+              </div>
+              <div class="form-group px-3 my-3">
+                <input
+                  type="text"
+                  class="form-control p-2"
+                  name="subject"
+                  id="subject"
+                  placeholder="Subject"
+                  required
+                />
+              </div>
+              <div class="form-group px-3 my-3">
+                <textarea
+                  name="message"
+                  class="form-control p-2"
+                  id="message"
+                  cols="30"
+                  rows="6"
+                  placeholder="Message"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group px-3 my-3 mb-5">
+                <input
+                  type="submit"
+                  value="Send Message"
+                  class="btn"
+                  id="contact-btn"
+                />
+                <div class="submitting"></div>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-md-6 d-flex align-items-stretch">
+            <div class="info-wrap w-100 p-lg-5 p-4 img">
+              <h3>Contact us</h3>
+              <p class="mb-4">
+                We're open for any suggestion or just to have a chat
+              </p>
+              <div class="dbox w-100 d-flex align-items-start">
+                <div
+                  class="icon d-flex align-items-center justify-content-center"
+                >
+                  <span class="fa fa-map-marker"></span>
+                </div>
+                <div class="text pl-3">
+                  <p>
+                    <span>Address:</span> 1 Mahmoud Salamah, Kom Ad Dakah Gharb,
+                    Al Attarin, Alexandria Governorate
+                  </p>
+                </div>
+              </div>
+              <div class="dbox w-100 d-flex align-items-center">
+                <div
+                  class="icon d-flex align-items-center justify-content-center"
+                >
+                  <span class="fa fa-phone"></span>
+                </div>
+                <div class="text pl-3">
+                  <p>
+                    <span>Phone:</span>
+                    <a href="tel://1234567920">+ 201091619325</a>
+                  </p>
+                </div>
+              </div>
+              <div class="dbox w-100 d-flex align-items-center">
+                <div
+                  class="icon d-flex align-items-center justify-content-center"
+                >
+                  <span class="fa fa-paper-plane"></span>
+                </div>
+                <div class="text pl-3">
+                  <p>
+                    <span>Email:</span>
+                    <a href="mailto: mahmoudmahmed1499.com">Send Email</a>
+                  </p>
+                </div>
+              </div>
+              <div class="dbox w-100 d-flex align-items-center">
+                <div
+                  class="icon d-flex align-items-center justify-content-center"
+                >
+                  <span class="fa fa-globe"></span>
+                </div>
+                <div class="text pl-3">
+                  <p>
+                    <span>Website</span>
+                    <a href="https://omar456-asc.github.io/FrontEndJSProject/"
+                      >FrontEndJSProject.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- contact us script -->
+    <script src="../JavaScript/contact-us.js"></script>
+    <!-- fontawesome us script -->
+    <script src="../fontawesome/all.min.js"></script>
+  </body>
+</html>
