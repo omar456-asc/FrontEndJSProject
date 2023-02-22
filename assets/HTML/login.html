@@ -25,25 +25,25 @@
               <h6 class="welcome-text">Welcome Back</h6>
               <h2 class="signin-text">Sign In</h2>
               <form action="/login" method="post">  <!-- Form Begin -->
-                
-                <label for="exampleInputUser1" class="form-label">Username</label>
+                <p class="errMsg"><i class="fa-solid fa-triangle-exclamation"></i> Wrong Username or Password</p>
+                <label for="exampleInputUser1" class="form-label fw-bold">Username</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-user fa-lg"></i></span>
+                    <span class="input-group-text loginIcon-style"><i class="fa fa-user fa-lg"></i></span>
                   </div>
                   <input type="text" class="form-control" id="exampleInputUser1">
                 </div>
 
-                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <label for="exampleInputPassword1" class="form-label mt-2 fw-bold">Password</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa-solid fa-lock fa-lg"></i></span>
+                    <span class="input-group-text loginIcon-style"><i class="fa-solid fa-lock fa-lg"></i></span>
                   </div>
                   <input type="password" class="form-control" id="exampleInputPassword1">
                 </div>
                 <a href="" class="forgot-pass">Forgot password?</a><br>
                 <button type="submit" class="login-button">Login <i class="fa-solid fa-arrow-right"></i></button>
-                <p class="no-account">Don't have account? <a href="" class="signup">Sign Up</a></p>
+                <p class="no-account">Don't have account? <a href="./register.html" class="signup">Sign Up</a></p>
               </form>  
             </div>
           </div>

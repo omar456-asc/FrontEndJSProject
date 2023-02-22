@@ -5,18 +5,18 @@ html,body{
     padding: 5em;
     border-radius: 25px;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
-    margin-top: calc(100%/10);
+    margin-top: 1.5em;
 }
 
 .welcome-text{
     font-weight: 400;
 }
 .signin-text{
-    margin-top: 0.5em;
     font-weight: bold;
+    text-align: center;
 }
 /* Button */
-.login-button{
+.register-button{
     color: white;
     background-color: #F47458;
     border-radius: 15px;
@@ -27,15 +27,15 @@ html,body{
     margin-left: 10px;
     display: none;
 }
-.login-button:hover{
+.register-button:hover{
     padding: 0.2em 1.5em 0.2em 2em;
     background-color: #f85632;
 }
-.login-button:hover .fa-arrow-right{
+.register-button:hover .fa-arrow-right{
     display: inline;
 }
 /* End Button */
-.loginIcon-style{
+.registerIcon-style{
     background-color: rgb(240, 240, 240);
 }
 .forgot-pass{
@@ -80,12 +80,25 @@ input:focus{
     height: 100vh;
 }
 
-.login-img{
-    margin-left: -7em;
-    box-sizing: border-box;
+.register-img{
+    margin-top: 10em;
+    height: 30em;
 }
 
 /* /////////// Error Handling Style ////////////// */
-.errMsg{
+
+.userTitle, .emailTitle, .passTitle, .rePassTitle{
     color: red;
+}
+.userErrMsg,.emailErrMsg,.passErrMsg, .rePassErrMsg{
+    color: red;
+    font-weight: lighter;
+}
+.userAlertIcon,.emailAlertIcon, .passAlertIcon{
+    color: red;
+}
+
+/* For toggling 2 titles normal and error */
+.hidder{ 
+    display: none;
 }
