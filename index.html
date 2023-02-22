@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ecommerce Home Page</title>
+    <link
+      rel="icon"
+      href="assets/images/Nav-bar/icon.png"
+      type="image/icon type"
+    />
+
     <!-- ################################### (Style)  ############################### -->
     <!-- Reset file for css -->
     <link rel="stylesheet" href="../CSS/reset.css" />
@@ -16,7 +22,7 @@
     <link rel="stylesheet" href="assets/CSS/home.css" />
   </head>
   <body>
-    <!-- #######################(For Test)############################################# -->
+    <!-- #######################(For Test Only)############################################# -->
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -77,9 +83,324 @@
       </div>
     </nav>
 
-    <i class="fa-solid fa-bars" style="font-size: 100px"></i>
+    <!-- ##########################(FAQ section Start)########################################### -->
 
-    <!-- ##########################FOOTER########################################### -->
+    <section class="faq-sec container row m-auto">
+      <h1 class="page-heading p-3">Need Help?</h1>
+      <div class="col-lg-8">
+        <p></p>
+        <div class="col-lg-12 slogan p-1">
+          Answers to frequently asked questions
+        </div>
+
+        <div class="accordion" id="accordionFQA">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+              >
+                I’m having problems placing an order. What do I do?
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                If you are having trouble at any stage of the process, we are
+                happy to help! Call us at 416-755-1100 (toll free
+                1-800-561-9177) or email us at help@baskits.ca and we will
+                respond in a timely manner.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                How do I track an order?
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                Once your order is placed, you will receive a confirmation email
+                which will include a tracking number. You can enter that number
+                on our tracking page to follow your Baskit on its journey.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Can I add to/change or cancel an existing order?
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                Because we aim to provide efficient service and delivery, we
+                like to prepare gifts immediately after orders are placed.
+                Therefore, orders cannot be changed within 48 hours of the
+                shipping date. You can read more about our cancellation policy
+                <a href="#">here</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                COVID-19 Protocols
+              </button>
+            </h2>
+            <div
+              id="collapseFour"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingFour"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <p>
+                  The health and well-being of our clients, our employees, and
+                  the community are of utmost importance to us and so we have
+                  implemented a number of protocols related to COVID-19,
+                  specifically:
+                </p>
+                <ul>
+                  <li>
+                    We have drastically increased the strength and frequency of
+                    cleaning and disinfection, focusing heavily on
+                    frequently-touched surfaces such as tables, doorknobs, light
+                    switches, handles, desks, toilets, faucets, and sinks, per
+                    WHO guidelines.<br /><br />
+                  </li>
+                  <li>
+                    We are encouraging employees to wash hands frequently
+                    throughout the day. We are also encouraging employees to
+                    maintain adequate distance between one another at all times
+                    when working, during breaks, at meetings and at all other
+                    times.<br /><br />
+                  </li>
+                  <li>
+                    Wherever possible, we have asked that each member of our
+                    team work from home.<br /><br />
+                  </li>
+                  <li>
+                    We are closely monitoring information from Toronto Public
+                    Health, the Ontario Ministry of Health, the Public Health
+                    Agency of Canada, and the World Health Organization for
+                    updates and communicating these updates to our team so they
+                    can remain safe both inside and outside of the workplace.
+                  </li>
+                </ul>
+                <p>
+                  For more information on our experience during the pandemic,
+                  please check out this article in
+                  <a href="#">View From The Vibe</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- aaaaaaaaaaaaaaaaaaaaaaa -->
+        <h3 class="p-2">Shipping</h3>
+        <div class="accordion p-2" id="accordionFQAShipping">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFive"
+                aria-expanded="false"
+                aria-controls="collapseFive"
+              >
+                What are your rates for shipping and how long will delivery
+                take?
+              </button>
+            </h2>
+            <div
+              id="collapseFive"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingFive"
+              data-bs-parent="#accordionExample"
+            >
+              <div id="collapseFive" aria-labelledby="headingFive">
+                <div class="accordion-body">
+                  <p>
+                    Shipping rates and delivery times vary depending on where
+                    you want the product delivered, how soon you need it, and
+                    whether it is being delivered within Canada or the United
+                    States. Our deliveries can be segregated into two groups:
+                  </p>
+                  <p>
+                    <strong>Local Courier</strong> &ndash; These are hand
+                    deliveries within the Greater Toronto Area which are made
+                    via local courier. Charges are $14 per address. For multiple
+                    baskits to the same address, we charge $14 for the first
+                    baskit and $4 for each subsequent gift to the same address.
+                    This is because local couriers charge us based on the space
+                    utilized in their delivery vehicles. For large baskits
+                    (items greater than $300) delivered within the GTA, we
+                    charge $30 per address, again given the rates of local
+                    couriers.
+                  </p>
+                  <p>
+                    <strong>UPS</strong> &ndash; These are deliveries outside of
+                    the Greater Toronto Area (United States and the rest of
+                    Canada) which are delivered via UPS. Charges are subject to
+                    their pricing algorithm, which you can see by adding items
+                    to the cart or by
+                    <a href="assets/HTML/contact-us.html">contacting us</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingsix">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapsesix"
+                  aria-expanded="false"
+                  aria-controls="collapsesix"
+                >
+                  Will I get a shipping confirmation?
+                </button>
+              </h2>
+              <div
+                id="collapsesix"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingsix"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  Once your order is placed, you will receive a confirmation
+                  email which will include a tracking number. You can enter that
+                  number on our tracking page to follow your Baskit on its
+                  journey.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSeven">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseSeven"
+                  aria-expanded="false"
+                  aria-controls="collapseSeven"
+                >
+                  Do you ship outside of Egypt?
+                </button>
+              </h2>
+              <div
+                id="collapseSeven"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingSeven"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  Because we aim to provide efficient service and delivery, we
+                  like to prepare gifts immediately after orders are placed.
+                  Therefore, orders cannot be changed within 48 hours of the
+                  shipping date. You can read more about our cancellation policy
+                  <a href="#">here</a>
+                </div>
+              </div>
+            </div>
+            <!-- b -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingEight">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseEight"
+                  aria-expanded="false"
+                  aria-controls="collapseEight"
+                >
+                  Why don&rsquo;t you offer free shipping?
+                </button>
+              </h2>
+              <div
+                id="collapseEight"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingEight"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  <p>
+                    We ship across North America and provide real-time tracking
+                    and proof of delivery as a part of the cost of shipping. If
+                    anything goes wrong, we&rsquo;ll make it right. Some
+                    companies offer "free shipping" by not offering customer
+                    service and/or by reducing the quality and/or number of
+                    items in their baskets. We are unwilling to alter the
+                    quality of our gifts/services and prefer to provide our
+                    customers with transparent and fair pricing at all times. We
+                    work with top brands and select only the highest quality
+                    products, as a result, we are unable to offer free shipping.
+                    The good news is the person receiving your gift will know
+                    that it came from the best and you can rest assured that you
+                    have selected a gift service company that won&rsquo;t quit
+                    until you are satisfied.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- e eeeeeeeeeeeeeeeeeee-->
+      </div>
+      <div class="col-lg-4">
+        <img class="img-fluid" src="assets/images/login/login.png" alt="FAQ" />
+      </div>
+    </section>
+    <!-- ####################################(FAQ section End)################################################## -->
+
+    <!-- ##########################(FOOTER)########################################### -->
     <footer class="footer">
       <div class="container">
         <div class="row">
