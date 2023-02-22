@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.activeImg div img.active {
+    opacity: 1;
+}
+
+.activeImg div img:not(.active) {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.activeImg div img:not(.active):hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
