@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="assets/CSS/home.css" />
   </head>
   <body>
+    <!-- ##############(Header scroller ) ##################-->
+    <div class="scroller"></div>
+
     <!-- #######################(For Test Only)############################################# -->
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
@@ -241,7 +244,7 @@
         </div>
         <!-- aaaaaaaaaaaaaaaaaaaaaaa -->
         <h3 class="p-2">Shipping</h3>
-        <div class="accordion p-2" id="accordionFQAShipping">
+        <div class="accordion" id="accordionFQAShipping">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingFive">
               <button
@@ -262,131 +265,126 @@
               aria-labelledby="headingFive"
               data-bs-parent="#accordionExample"
             >
-              <div id="collapseFive" aria-labelledby="headingFive">
-                <div class="accordion-body">
-                  <p>
-                    Shipping rates and delivery times vary depending on where
-                    you want the product delivered, how soon you need it, and
-                    whether it is being delivered within Canada or the United
-                    States. Our deliveries can be segregated into two groups:
-                  </p>
-                  <p>
-                    <strong>Local Courier</strong> &ndash; These are hand
-                    deliveries within the Greater Toronto Area which are made
-                    via local courier. Charges are $14 per address. For multiple
-                    baskits to the same address, we charge $14 for the first
-                    baskit and $4 for each subsequent gift to the same address.
-                    This is because local couriers charge us based on the space
-                    utilized in their delivery vehicles. For large baskits
-                    (items greater than $300) delivered within the GTA, we
-                    charge $30 per address, again given the rates of local
-                    couriers.
-                  </p>
-                  <p>
-                    <strong>UPS</strong> &ndash; These are deliveries outside of
-                    the Greater Toronto Area (United States and the rest of
-                    Canada) which are delivered via UPS. Charges are subject to
-                    their pricing algorithm, which you can see by adding items
-                    to the cart or by
-                    <a href="assets/HTML/contact-us.html">contacting us</a>.
-                  </p>
-                </div>
+              <div class="accordion-body">
+                <p>
+                  Shipping rates and delivery times vary depending on where you
+                  want the product delivered, how soon you need it, and whether
+                  it is being delivered within Canada or the United States. Our
+                  deliveries can be segregated into two groups:
+                </p>
+                <p>
+                  <strong>Local Courier</strong> &ndash; These are hand
+                  deliveries within the Greater Toronto Area which are made via
+                  local courier. Charges are $14 per address. For multiple
+                  baskits to the same address, we charge $14 for the first
+                  baskit and $4 for each subsequent gift to the same address.
+                  This is because local couriers charge us based on the space
+                  utilized in their delivery vehicles. For large baskits (items
+                  greater than $300) delivered within the GTA, we charge $30 per
+                  address, again given the rates of local couriers.
+                </p>
+                <p>
+                  <strong>UPS</strong> &ndash; These are deliveries outside of
+                  the Greater Toronto Area (United States and the rest of
+                  Canada) which are delivered via UPS. Charges are subject to
+                  their pricing algorithm, which you can see by adding items to
+                  the cart or by
+                  <a href="assets/HTML/contact-us.html">contacting us</a>.
+                </p>
               </div>
             </div>
+          </div>
 
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingsix">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapsesix"
-                  aria-expanded="false"
-                  aria-controls="collapsesix"
-                >
-                  Will I get a shipping confirmation?
-                </button>
-              </h2>
-              <div
-                id="collapsesix"
-                class="accordion-collapse collapse"
-                aria-labelledby="headingsix"
-                data-bs-parent="#accordionExample"
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingsix">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsesix"
+                aria-expanded="false"
+                aria-controls="collapsesix"
               >
-                <div class="accordion-body">
-                  Once your order is placed, you will receive a confirmation
-                  email which will include a tracking number. You can enter that
-                  number on our tracking page to follow your Baskit on its
-                  journey.
-                </div>
+                Will I get a shipping confirmation?
+              </button>
+            </h2>
+            <div
+              id="collapsesix"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingsix"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                Once your order is placed, you will receive a confirmation email
+                which will include a tracking number. You can enter that number
+                on our tracking page to follow your Baskit on its journey.
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingSeven">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseSeven"
-                  aria-expanded="false"
-                  aria-controls="collapseSeven"
-                >
-                  Do you ship outside of Egypt?
-                </button>
-              </h2>
-              <div
-                id="collapseSeven"
-                class="accordion-collapse collapse"
-                aria-labelledby="headingSeven"
-                data-bs-parent="#accordionExample"
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSeven">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseSeven"
+                aria-expanded="false"
+                aria-controls="collapseSeven"
               >
-                <div class="accordion-body">
-                  Because we aim to provide efficient service and delivery, we
-                  like to prepare gifts immediately after orders are placed.
-                  Therefore, orders cannot be changed within 48 hours of the
-                  shipping date. You can read more about our cancellation policy
-                  <a href="#">here</a>
-                </div>
+                Do you ship outside of Egypt?
+              </button>
+            </h2>
+            <div
+              id="collapseSeven"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingSeven"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                Because we aim to provide efficient service and delivery, we
+                like to prepare gifts immediately after orders are placed.
+                Therefore, orders cannot be changed within 48 hours of the
+                shipping date. You can read more about our cancellation policy
+                <a href="#">here</a>
               </div>
             </div>
-            <!-- b -->
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingEight">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseEight"
-                  aria-expanded="false"
-                  aria-controls="collapseEight"
-                >
-                  Why don&rsquo;t you offer free shipping?
-                </button>
-              </h2>
-              <div
-                id="collapseEight"
-                class="accordion-collapse collapse"
-                aria-labelledby="headingEight"
-                data-bs-parent="#accordionExample"
+          </div>
+          <!-- b -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingEight">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseEight"
+                aria-expanded="false"
+                aria-controls="collapseEight"
               >
-                <div class="accordion-body">
-                  <p>
-                    We ship across North America and provide real-time tracking
-                    and proof of delivery as a part of the cost of shipping. If
-                    anything goes wrong, we&rsquo;ll make it right. Some
-                    companies offer "free shipping" by not offering customer
-                    service and/or by reducing the quality and/or number of
-                    items in their baskets. We are unwilling to alter the
-                    quality of our gifts/services and prefer to provide our
-                    customers with transparent and fair pricing at all times. We
-                    work with top brands and select only the highest quality
-                    products, as a result, we are unable to offer free shipping.
-                    The good news is the person receiving your gift will know
-                    that it came from the best and you can rest assured that you
-                    have selected a gift service company that won&rsquo;t quit
-                    until you are satisfied.
-                  </p>
-                </div>
+                Why don&rsquo;t you offer free shipping?
+              </button>
+            </h2>
+            <div
+              id="collapseEight"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingEight"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <p>
+                  We ship across North America and provide real-time tracking
+                  and proof of delivery as a part of the cost of shipping. If
+                  anything goes wrong, we&rsquo;ll make it right. Some companies
+                  offer "free shipping" by not offering customer service and/or
+                  by reducing the quality and/or number of items in their
+                  baskets. We are unwilling to alter the quality of our
+                  gifts/services and prefer to provide our customers with
+                  transparent and fair pricing at all times. We work with top
+                  brands and select only the highest quality products, as a
+                  result, we are unable to offer free shipping. The good news is
+                  the person receiving your gift will know that it came from the
+                  best and you can rest assured that you have selected a gift
+                  service company that won&rsquo;t quit until you are satisfied.
+                </p>
               </div>
             </div>
           </div>
@@ -610,10 +608,16 @@
         </div>
       </div>
     </footer>
+
+    <!-- ################### (SCROLL UP BUTTON)################## -->
+    <span class="up"><i class="fa-solid fa-arrow-up"></i></span>
+
     <!-- ##########################(Scripts)########################################### -->
     <!-- bootstrap JS link -->
     <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
     <!-- fontawesome Js Link -->
     <script src="assets/fontawesome/all.min.js"></script>
+    <!-- Home page Script  -->
+    <script src="assets/JavaScript/home.js"></script>
   </body>
 </html>

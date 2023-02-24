@@ -1,3 +1,13 @@
+/*################################### HEADER Scroller ################################ */
+.scroller {
+  background-color: #fe8ce3;
+  width: 0;
+  height: 4px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
 /*################################### Footter ################################ */
 footer {
   padding: 7em 0;
@@ -116,4 +126,25 @@ footer li span {
   width: 100%;
   height: 100px;
   display: block;
+}
+
+/* ###################(SCROL UP BUTTON)############# */
+.up {
+  text-align: center;
+  width: 30px;
+  position: fixed;
+  bottom: 10px;
+  right: -30px;
+  background-color: #fe8ce3;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.up.show {
+  right: 10px;
 }
