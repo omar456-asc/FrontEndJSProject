@@ -1,5 +1,7 @@
 .pic {
-  width: 302px;
+  width: 450px;
+  height: 250px;
+  border-radius: 25%;
 }
 .about {
   align-items: center;
