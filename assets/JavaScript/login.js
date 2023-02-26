@@ -1,8 +1,8 @@
 let myErrMsg = document.getElementById("myErrMsg");
 let userName = document.getElementById("exampleInputUser1");
 let userPass = document.getElementById("exampleInputPassword1");
-// Making local storage if none
 
+// Making local storage if none
 if(!(localStorage.getItem("tech"))){
     let arr = [];
     localStorage.setItem("tech",JSON.stringify(arr));
@@ -27,8 +27,30 @@ var crypt = {
 
 let getData = JSON.parse(localStorage.getItem("tech"));
 
-// Login 
+/////////////////////// Login //////////////////////////
 
+// Checking Cookie
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+if(getCookie("username") == getData.name)
+{
+    document.location.href = "../../";
+}
+// Clicking Button
 let myBtn = document.getElementById("mylogin");
 
 myBtn.addEventListener("click", ()=>{
