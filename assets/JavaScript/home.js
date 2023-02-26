@@ -1,13 +1,3 @@
-// ///////// START Header scoller ///////////////////
-let el = document.querySelector(".scroller");
-let height =
-  document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-window.addEventListener("scroll", () => {
-  const scrollTop = document.documentElement.scrollTop;
-  el.style.width = `${(scrollTop / height) * 100}%`;
-});
-// ///////// END Header scoller ///////////////////
 // ///////////// start products fetch data /////////
 fetch("https://dummyjson.com/products")
   .then((res) => {
@@ -27,46 +17,65 @@ fetch("https://dummyjson.com/products")
     //   filterProduct("all");
 
     // });
-    for(let i=0;i<10;i++){
+    for (let i = 0; i < 10; i++) {
       createCard(myData.products[i]);
     }
     filterProduct("all");
+  })
+  .then(() => {
+    // ///////// START Header scoller ///////////////////
+    let el = document.querySelector(".scroller");
+    let height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = document.documentElement.scrollTop;
+      el.style.width = `${(scrollTop / height) * 100}%`;
+    });
+    // ///////// END Header scoller ///////////////////
   });
 //bootstrap card
 let cardContainer;
 
 let createCard = (data) => {
-    //Create Card
-    let card = document.createElement("div");
-    //Card should have category and should stay hidden initially
-    card.classList.add("card", data.category, "hide");
-    //image div
-    let imgContainer = document.createElement("div");
-    imgContainer.classList.add("image-container");
-    //img tag
-    let image = document.createElement("img");
-    image.setAttribute("src", data.images[0]);
-    imgContainer.appendChild(image);
-    card.appendChild(imgContainer);
-    //container
-    let container = document.createElement("div");
-    container.classList.add("container");
-    //product name
-    let name = document.createElement("h5");
-    name.classList.add("product-name");
-    name.innerText = data.title.toUpperCase();
-    container.appendChild(name);
-    //price
-    let price = document.createElement("h6");
-    price.innerText = "$" + data.price;
-    container.appendChild(price);
-  
-    card.appendChild(container);
-    document.getElementById("products").appendChild(card);
-  
+  //Create Card
+  let card = document.createElement("div");
+  //Card should have category and should stay hidden initially
+  card.classList.add("card", data.category, "hide");
+  card.setAttribute("data-id", data.id);
+
+  //image div
+  let imgContainer = document.createElement("div");
+  imgContainer.classList.add("image-container");
+  //img tag
+  let image = document.createElement("img");
+  image.setAttribute("src", data.images[0]);
+  imgContainer.appendChild(image);
+  card.appendChild(imgContainer);
+  //container
+  let container = document.createElement("div");
+  container.classList.add("container");
+  //product name
+  let name = document.createElement("h5");
+  name.classList.add("product-name");
+  name.innerText = data.title.toUpperCase();
+  container.appendChild(name);
+  //price
+  let price = document.createElement("h6");
+  price.innerText = "$" + data.price;
+  container.appendChild(price);
+  button = document.createElement("Button");
+  button.classList = "btn btn-primary addBtn";
+  button.innerText = "Add to cart";
+
+  container.appendChild(button);
+
+  card.appendChild(container);
+  document.getElementById("products").appendChild(card);
 };
- //parameter passed from button (Parameter same as category)
- function filterProduct(value) {
+//parameter passed from button (Parameter same as category)
+function filterProduct(value) {
   //Button class code
   let buttons = document.querySelectorAll(".button-value");
   buttons.forEach((button) => {
@@ -136,9 +145,6 @@ upSpan.onclick = () => {
 ///////END SCROLL UP BUTTON ////////////
 
 // ////////////////// toggle sign in /////////////
-let signIn = document.getElementById("signIn");
-let register = document.getElementById("register");
-
 // console.log(signIn);
 //Get cookie
 function getCookie(cname) {
@@ -156,6 +162,9 @@ function getCookie(cname) {
   }
   return "";
 }
+let signIn = document.getElementById("signIn");
+let register = document.getElementById("register");
+let cart = document.getElementById("cart");
 
 if (getCookie("username")) {
   // console.log(document.cookie);
@@ -163,9 +172,71 @@ if (getCookie("username")) {
   console.log((name = getCookie("username")));
   signIn.innerHTML = `${name}`;
   register.innerHTML = `LogOut`;
+  document.location.href = "#";
+  signIn.href = "#";
+  cart.classList.remove("d-none");
+  // alert on add to cart
+  cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
+  numberOnCart = 0;
+  cartNmber.innerHTML = 0;
+
+  products.addEventListener("click", (e) => {
+    if (e.target.classList.contains("addBtn")) {
+      // alert("You can't add Unless you login ");
+      const elementName = e.target.parentNode.querySelector("h5").innerHTML;
+      createAlert(
+        `the ${elementName} has been added to cart successfully`,
+        "success"
+      );
+      //incrament cart
+      numberOnCart++;
+      cartNmber.innerHTML = numberOnCart;
+
+      console.log(cartNmber);
+    }
+  });
+}
+if (!getCookie("username")) {
+  products = document.getElementById("products");
+  console.log(products);
+  products.addEventListener("click", (e) => {
+    if (e.target.classList.contains("addBtn")) {
+      // alert("You can't add Unless you login ");
+      createAlert("You Must logIn to add product to cart", "danger");
+    }
+  });
 }
 
+// window.onload = () => {
+//   let addToCartButtons = document.querySelectorAll(".addBtn");
+//   if (!getCookie("username")) {
+//     console.log(addToCartButtons);
+
+//     addToCartButtons.forEach((btn) => {
+//       console.log(btn);
+//       btn.oaddEventListener("click", "aa", () => {
+//         alert("you must be logged in to add to cart");
+//         console.log("not login");
+//       });
+//     });
+//   }
+// };
+
 register.addEventListener("click", () => {
-  document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   document.location.href = "/";
+  document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  register.href = "#";
 });
+
+//Create alerts
+const pageMessages = document.getElementById("pageMessages");
+
+function createAlert(massage, alertType) {
+  let alertDiv = document.createElement("div");
+  alertDiv.classList = `alert alert-${alertType} `;
+  alertDiv.innerHTML = `${massage}`;
+  pageMessages.appendChild(alertDiv);
+  setTimeout(function () {
+    pageMessages.removeChild(alertDiv);
+  }, 1500);
+}

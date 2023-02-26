@@ -25,6 +25,9 @@
   <body>
     <!-- ##############(Header scroller ) ##################-->
     <div class="scroller"></div>
+    <!-- ##############(Alerts ) ##################-->
+
+    <div id="pageMessages"></div>
 
     <!-- #######################(Start of Nav)############################################# -->
     <header class="section-header">
@@ -53,7 +56,7 @@
             <!-- col.// -->
             <div class="col-lg-4 col-sm-6 col-12">
               <div class="widgets-wrap float-md-end">
-                <div class="widget-header me-3">
+                <div id="cart" class="widget-header me-3 d-none">
                   <a href="#" class="icon icon-sm rounded-circle border"
                     ><i class="fa fa-shopping-cart"></i
                   ></a>
@@ -68,9 +71,7 @@
                   <span class="text-muted">Welcome!</span>
                   <span>
                     <a id="signIn" href="assets/HTML/login.html">Sign in</a> |
-                    <a id="register" href="assets/HTML/register.html">
-                      Register</a
-                    >
+                    <a id="register" href="assets/HTML/register.html"> </a>
                   </span>
                 </span>
               </div>
@@ -106,7 +107,7 @@
                 <a class="nav-link" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="assets/HTML/about.html">About</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Categories</a>
@@ -152,17 +153,17 @@
     <!--###############################(End of Nav)##################################-->
     <!-- ##################(start products card)################# -->
     <div class="container" id="card-container">
-    <div id="buttons">
-      <button class="button-value" onclick="filterProduct('all')">All</button>
-      <button class="button-value" onclick="filterProduct('smartphones')">
-        SmartPhones
-      </button>
-      <button class="button-value" onclick="filterProduct('laptops')">
-        Laptops
-      </button>
+      <div id="buttons">
+        <button class="button-value" onclick="filterProduct('all')">All</button>
+        <button class="button-value" onclick="filterProduct('smartphones')">
+          SmartPhones
+        </button>
+        <button class="button-value" onclick="filterProduct('laptops')">
+          Laptops
+        </button>
+      </div>
+      <div id="products" class="container"></div>
     </div>
-    <div id="products" class="container"></div>
-  </div>
 
     <!-- ##################(End products card)################# -->
 
@@ -532,8 +533,10 @@
               >Latest News
             </h2>
             <div class="block-21 mb-4 d-flex">
-              <img class="img mr-4 m-2 rounded"
-              src="assets/images/footer/image_1.jpg" />
+              <img
+                class="img mr-4 m-2 rounded"
+                src="assets/images/footer/image_1.jpg"
+              />
               <div class="text">
                 <h3 class="heading">
                   <a href="#"
