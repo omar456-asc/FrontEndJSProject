@@ -26,16 +26,18 @@ var crypt = {
   };
 
 let getData = JSON.parse(localStorage.getItem("tech"));
-console.log(typeof(getData));
+
 // Login 
 
 let myBtn = document.getElementById("mylogin");
 
 myBtn.addEventListener("click", ()=>{
 
-    if(getData === {}){
+    if(getData == ""){
         console.log("empty");
-    }else{
+        myErrMsg.classList.remove("hidder");
+    }else
+    {
         let savedUser = getData.name;
         let dePass = crypt.decrypt(getData.password);
         if(userName.value != savedUser || userPass.value != dePass)
@@ -44,8 +46,12 @@ myBtn.addEventListener("click", ()=>{
         }
         else
         {
-            // make cookies & session
-            console.log("Loged in");
+            // make cookies
+            console.log("Logged in");
+            // Expires after one day
+            const oneDayToSeconds = 24 * 60 * 60;
+            document.cookie =  `username= ${savedUser}; max-age = ${oneDayToSeconds}; path=/;`
+            document.location.href = "../../";
         }
     }
 
