@@ -9,7 +9,7 @@ window.addEventListener("scroll", () => {
 });
 // ///////// END Header scoller ///////////////////
 // ///////////// start products fetch data /////////
-fetch("../JSON/products.json")
+fetch("https://dummyjson.com/products")
   .then((res) => {
     let myData = res.json();
     return myData;
@@ -21,11 +21,16 @@ fetch("../JSON/products.json")
     }
 
     cardContainer = document.getElementById("card-container");
-    myData.products.forEach((data) => {
-      createCard(data);
-      filterProduct("all");
+    // console.log(myData.products);
+    // myData.products.forEach((data) => {
+    //   createCard(data);
+    //   filterProduct("all");
 
-    });
+    // });
+    for(let i=0;i<10;i++){
+      createCard(myData.products[i]);
+    }
+    filterProduct("all");
   });
 //bootstrap card
 let cardContainer;
