@@ -130,3 +130,37 @@ upSpan.onclick = () => {
 };
 ///////END SCROLL UP BUTTON ////////////
 
+// ////////////////// toggle sign in /////////////
+let signIn = document.getElementById("signIn");
+let register = document.getElementById("register");
+
+// console.log(signIn);
+//Get cookie
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+if (getCookie("username")) {
+  // console.log(document.cookie);
+  // console.log(name);
+  console.log((name = getCookie("username")));
+  signIn.innerHTML = `${name}`;
+  register.innerHTML = `LogOut`;
+}
+
+register.addEventListener("click", () => {
+  document.cookie = `username=`;
+  document.location.href = "/";
+});

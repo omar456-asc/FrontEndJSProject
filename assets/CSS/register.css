@@ -70,7 +70,7 @@ input:focus{
     /* box-shadow: none !important; */
 }
 
-.fa-user, .fa-lock{
+.fa-user, .fa-lock, .fa-envelope{
     padding: 2px;
     box-sizing: border-box;
 }
