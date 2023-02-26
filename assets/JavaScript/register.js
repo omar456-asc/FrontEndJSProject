@@ -95,6 +95,7 @@ registerbtn.addEventListener("click",()=>{
             password: passEncrypt
         };
         localStorage.setItem("tech",JSON.stringify(arr));
+        document.location.replace("./login.html");
     }
 })
 
