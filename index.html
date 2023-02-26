@@ -39,9 +39,10 @@
                     type="text"
                     class="form-control"
                     placeholder="Search"
+                    id="search-input"
                   />
                   <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">
+                    <button class="btn btn-primary" type="submit" id="search">
                       <i class="fa fa-search"></i>
                     </button>
                   </div>
@@ -146,6 +147,18 @@
 
     <!--###############################(End of Nav)##################################-->
     <!-- ##################(start products card)################# -->
+    <div class="container" id="card-container">
+    <div id="buttons">
+      <button class="button-value" onclick="filterProduct('all')">All</button>
+      <button class="button-value" onclick="filterProduct('smartphones')">
+        SmartPhones
+      </button>
+      <button class="button-value" onclick="filterProduct('laptops')">
+        Laptops
+      </button>
+    </div>
+    <div id="products" class="container"></div>
+  </div>
 
     <!-- ##################(End products card)################# -->
 
@@ -305,7 +318,6 @@
             </div>
           </div>
         </div>
-        <!-- aaaaaaaaaaaaaaaaaaaaaaa -->
         <h3 class="p-2">Shipping</h3>
         <div class="accordion" id="accordionFQAShipping">
           <div class="accordion-item">
@@ -452,8 +464,6 @@
             </div>
           </div>
         </div>
-
-        <!-- e eeeeeeeeeeeeeeeeeee-->
       </div>
       <div class="col-lg-4">
         <img class="img-fluid" src="assets/images/login/login.png" alt="FAQ" />
@@ -518,7 +528,7 @@
               >Latest News
             </h2>
             <div class="block-21 mb-4 d-flex">
-              <img class="img mr-4 m-2" rounded"
+              <img class="img mr-4 m-2 rounded"
               src="assets/images/footer/image_1.jpg" />
               <div class="text">
                 <h3 class="heading">
