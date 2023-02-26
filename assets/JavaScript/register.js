@@ -33,6 +33,8 @@ var crypt = {
 // Checking phase then ===> Register
 
 registerbtn.addEventListener("click",()=>{
+    let checking_flag = true;
+
     let usrname = document.getElementById("UsernameInput");
     let usremail = document.getElementById("userEmail");
     let pass = document.getElementById("password1");
@@ -47,18 +49,22 @@ registerbtn.addEventListener("click",()=>{
         let usrErr = document.getElementById("usrErr");
     
         usrNormal.classList.add("hidder");
-        usrErr.classList.remove("hidder")
+        usrErr.classList.remove("hidder");
+
+        checking_flag = false;
     }
 
-    else if(!emailCheck || usremail == ""){
+    if(!emailCheck || usremail == ""){
         let emailNormal = document.getElementById("emailNormal");
         let emailErr = document.getElementById("emailErr");
     
         emailNormal.classList.add("hidder")
         emailErr.classList.remove("hidder");
+
+        checking_flag = false;
     }
 
-   else if(!passCheck){
+    if(!passCheck){
         let passNormal = document.getElementById("passNormal");
         let passErr = document.getElementById("passErr");
     
@@ -66,9 +72,11 @@ registerbtn.addEventListener("click",()=>{
         passErr.classList.remove("hidder");
 
         pass.value = "";
+
+        checking_flag = false;
     }
     
-   else if(pass2.value != pass.value){
+    if(pass2.value != pass.value){
         let rePassNormal = document.getElementById("rePassNormal");
         let rePassErr = document.getElementById("rePassErr");
 
@@ -76,14 +84,16 @@ registerbtn.addEventListener("click",()=>{
         rePassErr.classList.remove("hidder");
 
         pass2.value = "";
+        checking_flag = false;
     }
 
-    else {
-        let arr =[];
-        arr.push(usrname.value);
-        arr.push(usremail.value);
+    if(checking_flag){
         let passEncrypt = crypt.encrypt(pass.value);
-        arr.push(passEncrypt);
+        let arr = {
+            name: usrname.value,
+            email: usremail.value,
+            password: passEncrypt
+        };
         localStorage.setItem("tech",JSON.stringify(arr));
     }
 })

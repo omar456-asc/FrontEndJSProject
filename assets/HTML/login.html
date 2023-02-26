@@ -24,8 +24,8 @@
             <div class="w-50 px-5  mx-auto form-container"> <!-- Edited in CSS -->
               <h6 class="welcome-text">Welcome Back</h6>
               <h2 class="signin-text">Sign In</h2>
-              <form action="/login" method="post">  <!-- Form Begin -->
-                <p class="errMsg"><i class="fa-solid fa-triangle-exclamation"></i> Wrong Username or Password</p>
+            <!-- Form Begin -->
+                <p class="errMsg hidder" id="myErrMsg"><i class="fa-solid fa-triangle-exclamation"></i> Wrong Username or Password</p>
                 <label for="exampleInputUser1" class="form-label fw-bold">Username</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -42,9 +42,9 @@
                   <input type="password" class="form-control" id="exampleInputPassword1">
                 </div>
                 <a href="" class="forgot-pass">Forgot password?</a><br>
-                <button type="submit" class="login-button">Login <i class="fa-solid fa-arrow-right"></i></button>
+                <button type="submit" class="login-button" id="mylogin">Login <i class="fa-solid fa-arrow-right"></i></button>
                 <p class="no-account">Don't have account? <a href="./register.html" class="signup">Sign Up</a></p>
-              </form>  
+           
             </div>
           </div>
           <!-- The Right Side (Second column) -->
@@ -55,5 +55,7 @@
       </div>
     <!-- fontawesome us script -->
     <script src="../fontawesome/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../JavaScript/login.js"></script>
   </body>
 </html>
