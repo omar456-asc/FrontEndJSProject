@@ -88,4 +88,5 @@ input:focus{
 /* /////////// Error Handling Style ////////////// */
 .errMsg{
     color: red;
+    display: none;
 }

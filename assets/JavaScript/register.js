@@ -4,7 +4,33 @@ let passRegex = /[^\s]{8,}$/;   // atleast 8 digits
 
 
 let registerbtn = document.getElementById("myregisterbtn");
-// Checking phase
+
+// Creating LocalStorage
+
+if(!(localStorage.getItem("tech"))){
+    let arr = [];
+    localStorage.setItem("tech",JSON.stringify(arr));
+  }else{
+    console.log("Local storage already found")
+  }
+
+// Encrypt & Decrypt
+
+var crypt = {
+    secret : "CIPHERKEY For The best team in ITI",
+
+    encrypt : clear => {
+      var cipher = CryptoJS.AES.encrypt(clear, crypt.secret);
+      return cipher.toString();
+    },
+
+    decrypt : cipher => {
+      var decipher = CryptoJS.AES.decrypt(cipher, crypt.secret);
+      return decipher.toString(CryptoJS.enc.Utf8);
+    }
+  };
+
+// Checking phase then ===> Register
 
 registerbtn.addEventListener("click",()=>{
     let usrname = document.getElementById("UsernameInput");
@@ -24,7 +50,7 @@ registerbtn.addEventListener("click",()=>{
         usrErr.classList.remove("hidder")
     }
 
-    if(!emailCheck || usremail == ""){
+    else if(!emailCheck || usremail == ""){
         let emailNormal = document.getElementById("emailNormal");
         let emailErr = document.getElementById("emailErr");
     
@@ -32,7 +58,7 @@ registerbtn.addEventListener("click",()=>{
         emailErr.classList.remove("hidder");
     }
 
-    if(!passCheck){
+   else if(!passCheck){
         let passNormal = document.getElementById("passNormal");
         let passErr = document.getElementById("passErr");
     
@@ -42,7 +68,7 @@ registerbtn.addEventListener("click",()=>{
         pass.value = "";
     }
     
-    if(pass2.value != pass.value){
+   else if(pass2.value != pass.value){
         let rePassNormal = document.getElementById("rePassNormal");
         let rePassErr = document.getElementById("rePassErr");
 
@@ -50,6 +76,15 @@ registerbtn.addEventListener("click",()=>{
         rePassErr.classList.remove("hidder");
 
         pass2.value = "";
+    }
+
+    else {
+        let arr =[];
+        arr.push(usrname.value);
+        arr.push(usremail.value);
+        let passEncrypt = crypt.encrypt(pass.value);
+        arr.push(passEncrypt);
+        localStorage.setItem("tech",JSON.stringify(arr));
     }
 })
 
