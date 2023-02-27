@@ -166,36 +166,45 @@ let signIn = document.getElementById("signIn");
 let register = document.getElementById("register");
 let cart = document.getElementById("cart");
 
-if (getCookie("username")) {
-  // console.log(document.cookie);
-  // console.log(name);
-  console.log((name = getCookie("username")));
-  signIn.innerHTML = `${name}`;
-  register.innerHTML = `LogOut`;
-  document.location.href = "#";
-  signIn.href = "#";
-  cart.classList.remove("d-none");
-  // alert on add to cart
-  cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
-  numberOnCart = 0;
-  cartNmber.innerHTML = 0;
+function checkingLogout(){
 
-  products.addEventListener("click", (e) => {
-    if (e.target.classList.contains("addBtn")) {
-      // alert("You can't add Unless you login ");
-      const elementName = e.target.parentNode.querySelector("h5").innerHTML;
-      createAlert(
-        `the ${elementName} has been added to cart successfully`,
-        "success"
-      );
-      //incrament cart
-      numberOnCart++;
-      cartNmber.innerHTML = numberOnCart;
+  if (getCookie("username")) {
 
-      console.log(cartNmber);
-    }
-  });
+    console.log((name = getCookie("username")));
+    signIn.innerHTML = `${name}`;
+    register.innerHTML = `Logout`;
+    register.setAttribute("href","");
+
+    // No Edit
+    cart.classList.remove("d-none");
+    // alert on add to cart
+    cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
+    numberOnCart = 0;
+    cartNmber.innerHTML = 0;
+  
+    products.addEventListener("click", (e) => {
+      if (e.target.classList.contains("addBtn")) {
+        // alert("You can't add Unless you login ");
+        const elementName = e.target.parentNode.querySelector("h5").innerHTML;
+        createAlert(
+          `the ${elementName} has been added to cart successfully`,
+          "success"
+        );
+        //incrament cart
+        numberOnCart++;
+        cartNmber.innerHTML = numberOnCart;
+  
+        console.log(cartNmber);
+      }
+    });
+  }else{
+    signIn.setAttribute("href","assets/HTML/login.html");
+    register.setAttribute("href","assets/HTML/register.html");
+  }
 }
+
+checkingLogout(); // For Auto run
+
 if (!getCookie("username")) {
   products = document.getElementById("products");
   console.log(products);
@@ -223,9 +232,11 @@ if (!getCookie("username")) {
 // };
 
 register.addEventListener("click", () => {
-  document.location.href = "/";
+  document.location.reload();
+  checkingLogout(); // To re-check Logout 
+  //document.location.href = "/";
   document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  register.href = "#";
+  //// register.href = "#";
 });
 
 //Create alerts
