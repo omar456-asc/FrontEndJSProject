@@ -165,15 +165,14 @@ function getCookie(cname) {
 let signIn = document.getElementById("signIn");
 let register = document.getElementById("register");
 let cart = document.getElementById("cart");
+console.log(cart);
 
-function checkingLogout(){
-
+function checkingLogout() {
   if (getCookie("username")) {
-
     console.log((name = getCookie("username")));
     signIn.innerHTML = `${name}`;
     register.innerHTML = `Logout`;
-    register.setAttribute("href","");
+    register.setAttribute("href", "");
 
     // No Edit
     cart.classList.remove("d-none");
@@ -181,7 +180,7 @@ function checkingLogout(){
     cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
     numberOnCart = 0;
     cartNmber.innerHTML = 0;
-  
+
     products.addEventListener("click", (e) => {
       if (e.target.classList.contains("addBtn")) {
         // alert("You can't add Unless you login ");
@@ -193,13 +192,13 @@ function checkingLogout(){
         //incrament cart
         numberOnCart++;
         cartNmber.innerHTML = numberOnCart;
-  
+
         console.log(cartNmber);
       }
     });
-  }else{
-    signIn.setAttribute("href","assets/HTML/login.html");
-    register.setAttribute("href","assets/HTML/register.html");
+  } else {
+    signIn.setAttribute("href", "assets/HTML/login.html");
+    register.setAttribute("href", "assets/HTML/register.html");
   }
 }
 
@@ -233,7 +232,7 @@ if (!getCookie("username")) {
 
 register.addEventListener("click", () => {
   document.location.reload();
-  checkingLogout(); // To re-check Logout 
+  checkingLogout(); // To re-check Logout
   //document.location.href = "/";
   document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   //// register.href = "#";
