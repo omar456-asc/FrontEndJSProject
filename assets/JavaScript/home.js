@@ -193,7 +193,7 @@ function checkingLogout() {
         numberOnCart++;
         cartNmber.innerHTML = numberOnCart;
 
-        console.log(cartNmber);
+        // console.log(cartNmber);
       }
     });
   } else {
