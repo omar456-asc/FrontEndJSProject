@@ -1,4 +1,49 @@
+@font-face {
+  font-family: lobster;
+  src: url(../Fonts/Lobster-Regular.ttf);
+}
 /*########################Header-NavBar##########################################*/
+/* Shehab Start */
+.shop-title{
+  font-family: lobster;
+  font-size: 2em;
+}
+.btns-edit{
+  color: black;
+  background-color: white;
+  font-size: 1.2em;
+  padding: 0.5em 1em;
+  margin-right: 1em;
+  position: relative;
+  border: none;
+  cursor: pointer;
+}
+.btns-edit::after{
+  content: "";
+  width: 100%;
+  position: absolute;
+  height: 0.1em;
+  background-color: black;
+  bottom: 0;
+  left: 0;
+  transform: scale(0,1);
+
+}
+.btns-edit:hover::after{
+  transform: scale(1,1);
+  transition: 0.3s;
+}
+.btns-edit:focus::after{
+  transform: scale(1,1);
+}
+.menu-btns-edit{
+  text-align: center;
+}
+/*  Un comment this and all buttons will get black instead of bootstrap blue */
+/* .btn{
+  background-color: black;
+} */
+/* End Shehab */
 .header-top-light .nav-link {
     color: #969696;
   }
