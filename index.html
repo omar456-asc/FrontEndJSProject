@@ -56,11 +56,50 @@
             <!-- col.// -->
             <div class="col-lg-4 col-sm-6 col-12">
               <div class="widgets-wrap float-md-end">
-                <div id="cart" class="widget-header me-3 d-none">
-                  <a href="#" class="icon icon-sm rounded-circle border"
-                    ><i class="fa fa-shopping-cart"></i
+                <div id="cart" class="widget-header me-3" onclick="openNav()">
+                  <a
+                    href="#"
+                    class="icon icon-sm rounded-circle border"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fa fa-shopping-cart"></i
                   ></a>
                   <span class="badge badge-pill badge-danger notify">0</span>
+                </div>
+                <!-- product cart  cart  -->
+                <div id="mySidenav" class="sidenav justify-content-center">
+                  <a
+                    href="javascript:void(0)"
+                    class="closebtn"
+                    onclick="closeNav()"
+                    >&times;</a
+                  >
+                  <div class="productsCart container">
+                    <div class="row">
+                      <div class="cartImg col-6">
+                        <img
+                          src="assets/images/product-details/Apple-iPhone-13-2.jpg"
+                          class="img-fluid"
+                        />
+                      </div>
+                      <div class="col-6">
+                        <p class="fw-bold">90,990 – 101,000</p>
+                        <input
+                          value="0"
+                          min="0"
+                          type="number"
+                          id="typeNumber"
+                          class="form-control mt-2 d-inline rounded-5 bg-light"
+                        />
+                      </div>
+                    </div>
+                    <!-- <div class="p-1 bg-primary w-100"></div> -->
+                    <hr />
+
+                    <!-- end cart details -->
+                    <button class="btn btn-primary">Checkout</button>
+                  </div>
                 </div>
                 <div class="widget-header icontext">
                   <a href="#" class="icon icon-sm rounded-circle border"
@@ -71,7 +110,9 @@
                   <span class="text-muted">Welcome!</span>
                   <span>
                     <a id="signIn" href="assets/HTML/login.html">Sign in</a> |
-                    <a id="register" href="assets/HTML/register.html"> </a>
+                    <a id="register" href="assets/HTML/register.html"
+                      >Register</a
+                    >
                   </span>
                 </span>
               </div>
@@ -675,5 +716,6 @@
     <script src="assets/fontawesome/all.min.js"></script>
     <!-- Home page Script  -->
     <script src="assets/JavaScript/home.js"></script>
+    <script src="assets/JavaScript/sideNav.js"></script>
   </body>
 </html>
