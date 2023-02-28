@@ -18,6 +18,10 @@ let productsCartArray =[];
 if (localStorage.getItem("product")) {
   productsCartArray = JSON.parse(localStorage.getItem("product"));
   getDataFromLocalStorage();
+  addElementsToPageFrom(productsCartArray);
+  cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
+    numberOnCart = 0;
+    cartNmber.innerHTML = productsCartArray.length;
 }
 // Add product to cart
 if (getCookie("username")) {
