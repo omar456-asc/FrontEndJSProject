@@ -312,6 +312,9 @@
   font-size: 36px;
   margin-left: 50px;
 }
+.sidenav .row  .span:hover{
+  cursor: pointer;
+}
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}

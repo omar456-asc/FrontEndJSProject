@@ -6,71 +6,64 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
-
+// to access the cart
 productsCart = document.querySelector("div.productsCart.container");
-console.log(productsCart);
 let productsCartArray =[];
 
 
 
 
-// Check if Theres Tasks In Local Storage
+// Check if Theres items In Local Storage
 if (localStorage.getItem("product")) {
   productsCartArray = JSON.parse(localStorage.getItem("product"));
-  getDataFromLocalStorage();
+
   addElementsToPageFrom(productsCartArray);
   cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
     numberOnCart = 0;
     cartNmber.innerHTML = productsCartArray.length;
 }
-// Add product to cart
+
 if (getCookie("username")) {
   products.addEventListener("click", (e) => {
     if (e.target.classList.contains("addBtn")) {
       const element = e.target.parentNode.parentNode;
-      // console.log(element);
+   
       //  get data from cart
       let poductName = element.querySelector("h5").innerHTML;
       let poductPrice = element.querySelector("h6").innerHTML;
       let poductImg = element.querySelector("img").src;
       let productID = element.getAttribute("data-id");
-      // console.log(poductName);
-      // console.log(poductPrice);
-      // console.log(poductImg);
-      // console.log(productID);
+      
 
       productObj = {
         id: productID,
         name: poductName,
         price: poductPrice,
         imgSrc: poductImg,
+        quantity:1,
+        Total:poductPrice
       };
-      
+      // set data to locat storage
       productsCartArray.push(productObj);
       window.localStorage.setItem("product", JSON.stringify(productsCartArray));
-      getDataFromLocalStorage();
+     
       
   addElementsToPageFrom(productsCartArray);
      
     }
-    // console.log(productsCartArrary);
+   
   });
 }
 
-function getDataFromLocalStorage() {
-  let product = window.localStorage.getItem("product");
-  if (product) {
-    let productArr = JSON.parse(product);
-    console.log(productArr);
-    // addElementsToPageFrom(productArr);
-  }
-}
+
 
 function addElementsToPageFrom(productsCartArray) {
   productsCart.innerHTML = "";
 
   productsCartArray.forEach((item) => {
     // Create Main Div
+    productsCartArray = JSON.parse(localStorage.getItem("product"));
+    cartNmber.innerHTML = productsCartArray.length;
     let div = document.createElement("div");
     div.className = "row";
     let divcol1 = document.createElement("div");
@@ -83,7 +76,7 @@ function addElementsToPageFrom(productsCartArray) {
     let itemName = document.createElement("p");
     itemName.appendChild(document.createTextNode(item.name));
     let itemPrice = document.createElement("p");
-    itemPrice.appendChild(document.createTextNode(item.price));
+    itemPrice.appendChild(document.createTextNode(item.Total));
     let itemImg=document.createElement("img");
     itemImg.className="img-fluid";
     itemImg.src=`${item.imgSrc}`;
@@ -94,8 +87,8 @@ productsCart.append(div);
 let hr=document.createElement("hr");
 productsCart.append(hr);
 let itemqun=document.createElement("input");
-itemqun.setAttribute("value","0");
-itemqun.setAttribute("min","0");
+itemqun.value=item.quantity;
+itemqun.setAttribute("min","1");
 itemqun.setAttribute("type","number");
 itemqun.setAttribute("id","typeNumber");
 itemqun.classList.add("form-control");
@@ -109,10 +102,42 @@ let delicon=document.createElement("i");
 delicon.classList.add("fa-sharp");
 delicon.classList.add("fa-solid");
 delicon.classList.add("fa-trash");
-delicon.classList.add("d-inline");
+
 delicon.classList.add("mx-2");
-  
-divcol2.appendChild(delicon);
+delicon.classList.add("delete");
+let delicona=document.createElement("span");
+delicona.classList.add("d-inline");
+delicona.classList.add("pointer");
+delicona.appendChild(delicon)
+divcol2.appendChild(delicona);
+delicona.onclick=function(){
+  delicona.parentElement.parentElement.remove();
+  document.querySelector("hr").remove();
+  deleteTaskWith(item.id);
+  productsCartArray = JSON.parse(localStorage.getItem("product"));
+  cartNmber.innerHTML = productsCartArray.length;
+  }
+  itemqun.onchange=function(){
+   
+    let multi=Number(item.price.replace("$", ""))*Number(itemqun.value)
+    itemPrice.innerHTML=`$${multi}`;
+   
+    productsCartArray = productsCartArray.filter((item) => item.id != item.id);
+    item.quantity=itemqun.value
+    item.Total=`${itemPrice.innerHTML}`;
+  productsCartArray.push(item)
+  window.localStorage.setItem("product", JSON.stringify(productsCartArray));
+  console.log(item) 
+  }
   });
   
 }
+function deleteTaskWith(ID) {
+  productsCartArray = productsCartArray.filter((item) => item.id != ID);
+  console.log(productsCartArray)
+  window.localStorage.setItem("product", JSON.stringify(productsCartArray));
+}
+
+
+
+
