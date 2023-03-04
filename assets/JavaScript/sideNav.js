@@ -153,6 +153,8 @@ function deleteTaskWith(ID) {
   productsCartArray = productsCartArray.filter((item) => item.id != ID);
 
   window.localStorage.setItem("product", JSON.stringify(productsCartArray));
+  numberOnCart = 0;
+  cartNmber.innerHTML = productsCartArray.length;
   return productsCartArray;
 }
 
