@@ -8,7 +8,11 @@ function closeNav() {
 }
 // to access the cart
 productsCart = document.querySelector("div.productsCart.container");
-let productsCartArray =[];
+let productsCartArray=[]
+let clearbtn=document.querySelector(".clear")
+
+  
+
 
 
 
@@ -16,7 +20,7 @@ let productsCartArray =[];
 // Check if Theres items In Local Storage
 if (localStorage.getItem("product")) {
   productsCartArray = JSON.parse(localStorage.getItem("product"));
-
+// console.log(productsCartArray)
   addElementsToPageFrom(productsCartArray);
   cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
     numberOnCart = 0;
@@ -26,8 +30,9 @@ if (localStorage.getItem("product")) {
 if (getCookie("username")) {
   products.addEventListener("click", (e) => {
     if (e.target.classList.contains("addBtn")) {
+     
       const element = e.target.parentNode.parentNode;
-   
+      
       //  get data from cart
       let poductName = element.querySelector("h5").innerHTML;
       let poductPrice = element.querySelector("h6").innerHTML;
@@ -43,8 +48,19 @@ if (getCookie("username")) {
         quantity:1,
         Total:poductPrice
       };
-      // set data to locat storage
-      productsCartArray.push(productObj);
+      var index = productsCartArray.findIndex(item => item.id == productID);
+      console.log(index)
+      if(index ==-1){
+     productsCartArray.push(productObj);}
+     else{
+      productsCartArray[index].quantity+=1;
+      productsCartArray[index].Total=`$${Number(productsCartArray[index].price.replace("$", ""))*Number(productsCartArray[index].quantity)}`
+     }
+   
+    
+     console.log(productsCartArray);
+ 
+
       window.localStorage.setItem("product", JSON.stringify(productsCartArray));
      
       
@@ -63,6 +79,7 @@ function addElementsToPageFrom(productsCartArray) {
   productsCartArray.forEach((item) => {
     // Create Main Div
     productsCartArray = JSON.parse(localStorage.getItem("product"));
+    // console.log(arrayUniqueByKey)
     cartNmber.innerHTML = productsCartArray.length;
     let div = document.createElement("div");
     div.className = "row";
@@ -118,26 +135,31 @@ delicona.onclick=function(){
   cartNmber.innerHTML = productsCartArray.length;
   }
   itemqun.onchange=function(){
-   
+   productsCartArray=window.localStorage.getItem("product");
     let multi=Number(item.price.replace("$", ""))*Number(itemqun.value)
     itemPrice.innerHTML=`$${multi}`;
-   
-    productsCartArray = productsCartArray.filter((item) => item.id != item.id);
     item.quantity=itemqun.value
     item.Total=`${itemPrice.innerHTML}`;
-  productsCartArray.push(item)
+    productsCartArray= deleteTaskWith(item.id);
+    productsCartArray.push(item);
   window.localStorage.setItem("product", JSON.stringify(productsCartArray));
-  console.log(item) 
+  
   }
   });
   
 }
 function deleteTaskWith(ID) {
+ 
   productsCartArray = productsCartArray.filter((item) => item.id != ID);
-  console.log(productsCartArray)
+
   window.localStorage.setItem("product", JSON.stringify(productsCartArray));
+  return productsCartArray;
 }
 
 
 
-
+clearbtn.addEventListener("click", ()=>{
+  localStorage.removeItem("product");
+  productsCartArray=[];
+  productsCart.innerHTML = "";
+});
