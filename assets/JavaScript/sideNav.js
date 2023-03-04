@@ -162,4 +162,5 @@ clearbtn.addEventListener("click", ()=>{
   localStorage.removeItem("product");
   productsCartArray=[];
   productsCart.innerHTML = "";
+  cartNmber.innerHTML = productsCartArray.length;
 });
