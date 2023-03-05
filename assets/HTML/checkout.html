@@ -31,6 +31,9 @@ rel="stylesheet"
       .hide{
             display: none;
         }
+        .bold{
+          font-weight: bold;
+        }
     </style>
 
     <style src="../CSS/pay.css"></style>
@@ -43,7 +46,7 @@ rel="stylesheet"
 
             <div class="btn-group shadow-0" role="group" style="margin-bottom: 10px;">
                 <button type="button" class="btn btn-link" data-mdb-color="dark" id="cartBtn">Cart</button>
-                <button type="button" class="btn btn-link" data-mdb-color="dark" style="font-weight: bold;" id="infoBtn">Information</button>
+                <button type="button" class="btn btn-link bold" data-mdb-color="dark" id="infoBtn">Information</button>
                 <button disabled type="button" class="btn btn-link" data-mdb-color="dark" id="payBtn">Payment</button>
             </div>
 
@@ -137,11 +140,11 @@ rel="stylesheet"
               </div>
 
               <!-- payment form -->
-              <div id="payForm" class="hide">
+              <div id="payForm" class="hide" style="margin-bottom: 30px;">
 
                 <div class="form-group" style="margin-top: 30px;" >
 
-                  <label for="contactinfo" style="margin-bottom: 3px; font-size: large; font-weight: bold;">Choose payment method:</label><hr>
+                  <label for="contactinfo" style="margin-bottom: 3px; font-size: large; font-weight: bold;">Choose payment method:</label><br>
                   <div class="btn-group" role="group">
                     <button type="button" class="btn btn-info" id="cashBtn">Cash on Delivery</button>
                     <button type="button" class="btn btn-info" id="visaBtn">Pay with VISA</button>
