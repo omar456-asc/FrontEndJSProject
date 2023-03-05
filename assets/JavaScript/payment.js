@@ -98,7 +98,7 @@ document.querySelector("#subTotal").innerHTML = prodsPrice + ' EGP';
 document.querySelector("#dissubTotal").innerHTML = prodsPrice + ' EGP';
 
 
-// Discount
+// coupon
 
 let disBtn = document.getElementById('disBtn');
 let dismsg = document.getElementById('dismsg');
@@ -108,20 +108,28 @@ let distotal = prodsPrice;
 
 disBtn.onclick = function(){
   let discount = document.getElementById('discount').value;
+  disBtn.disabled=true;
   if(discount=='blackFriday'){
     discountValue = 0.15;
     dismsg.classList.add('hide');
   }
-  else if(discount=='Shehab' || discount=='Omar' || discount=='SarSor' || discount=='Mahmoud' || discount=='BakBok'){
+  else if(discount=='Shehab' || discount=='SarSor' || discount=='Mahmoud' || discount=='BakBok'){
     discountValue = 0.5;
+    dismsg.classList.add('hide');
+  }
+  else if(discount=='Omar'){
+    discountValue = 0.7;
     dismsg.classList.add('hide');
   }
   else{
     document.querySelector("#dismsg").innerHTML = 'Unvalid discount code';
+    disBtn.disabled=false;
   }
 
   // products price with discount
-  distotal -=(prodsPrice*discountValue);
+  if(discountValue<1){
+    distotal -=(prodsPrice*discountValue);
+  }
   document.querySelector("#dissubTotal").innerHTML = distotal + ' EGP';
   totalPricefn();
 }
