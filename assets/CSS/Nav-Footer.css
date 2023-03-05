@@ -315,10 +315,19 @@ footer li span {
   font-size: 36px;
   margin-left: 50px;
 }
-.sidenav .row .span:hover {
+.delete:hover {
   cursor: pointer;
 }
-
+.empty{
+  margin-left: 15px;
+    color: gray;
+    opacity: 0.6;
+    z-index: 7;
+}
+.Checkout{
+  margin-left: 80px;
+  margin-right: 20px;
+}
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
