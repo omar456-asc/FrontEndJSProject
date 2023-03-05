@@ -41,7 +41,7 @@ rel="stylesheet"
 
 <body>
     <div class="row" style="width: 80%; margin: auto; margin-top: 50px;">
-        <div class="container-lg col-lg-6">
+        <form class="container-lg col-lg-6">
             <h2 style="font-weight: bold;">Check Out</h2>
 
             <div class="btn-group shadow-0" role="group" style="margin-bottom: 10px;">
@@ -55,7 +55,7 @@ rel="stylesheet"
                 <div class="form-group" style="margin-top: 30px;" >
 
                   <label for="contactinfo" style="margin-bottom: 3px; font-size: large;">Contact information:</label>
-                  <input type="text" class="form-control" id="contactinfo" style="margin-bottom: 3px;" placeholder="Email or phone number">
+                  <input type="text" class="form-control" id="contactinfo" style="margin-bottom: 3px;" placeholder="Email or phone number" required>
                   
                   <div class="form-check" style="margin-bottom: 30px;">
                     <input class="form-check-input" type="checkbox" id="check_offers" name="option1" checked >
@@ -80,8 +80,8 @@ rel="stylesheet"
                 
                 <div class="row g-2" style="margin-bottom: 10px;">
 
-                    <input type="text" class="form-control col-md" id="first_name" placeholder="First name">
-                    <input type="text" class="form-control col-md" id="last_name" placeholder="Last name">
+                    <input type="text" class="form-control col-md" id="first_name" placeholder="First name" required>
+                    <input type="text" class="form-control col-md" id="last_name" placeholder="Last name" required>
   
                 </div>
 
@@ -93,19 +93,19 @@ rel="stylesheet"
 
                 <div class="form-group" style="margin-bottom: 10px;">
 
-                    <input type="text" class="form-control col-md" id="address" placeholder="Address">
+                    <input type="text" class="form-control col-md" id="address" placeholder="Address" required>
   
                 </div>
 
                 <div class="form-group" style="margin-bottom: 10px;">
 
-                    <input type="text" class="form-control col-md" id="apartment" placeholder="Apartment, suite, etc..">
+                    <input type="text" class="form-control col-md" id="apartment" placeholder="Apartment, suite, etc.." required>
   
                 </div>
 
                 <div class="row g-2" style="margin-bottom: 10px;">
 
-                    <input type="text" class="col-md form-control col-md" id="city" placeholder="City">
+                    <input type="text" class="col-md form-control col-md" id="city" placeholder="City" required>
 
                     <div class="col-md form-floating">
                         <select class="form-select" id="government" aria-label="Floating label select example">
@@ -117,14 +117,14 @@ rel="stylesheet"
                         <label for="floatingSelectGrid">Government</label>
                     </div>
 
-                    <input type="text" class="col-md form-control col-md" id="postal" placeholder="Postal code">
+                    <input type="text" class="col-md form-control col-md" id="postal" placeholder="Postal code" required>
   
                 </div>
 
                 
                 <div class="form-group" style="margin-bottom: 10px;">
 
-                    <input type="tel" class="form-control col-md" id="phone" placeholder="Phone">
+                    <input type="tel" class="form-control col-md" id="phone" placeholder="Phone" required>
   
                 </div>
 
@@ -157,7 +157,7 @@ rel="stylesheet"
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                   <div class="form-outline">
                                     <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                                      placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                                      placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" required/>
                                     <label class="form-label" for="typeText">Card Number</label>
                                   </div>
                                   <img src="https://img.icons8.com/color/48/000000/visa.png" alt="visa" width="64px" />
@@ -166,7 +166,7 @@ rel="stylesheet"
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                   <div class="form-outline">
                                     <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
-                                      placeholder="Cardholder's Name" />
+                                      placeholder="Cardholder's Name" required/>
                                     <label class="form-label" for="typeName">Cardholder's Name</label>
                                   </div>
                                 </div>
@@ -174,12 +174,12 @@ rel="stylesheet"
                                 <div class="d-flex justify-content-between align-items-center pb-2">
                                   <div class="form-outline">
                                     <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YYYY"
-                                      size="7" id="exp" minlength="7" maxlength="7" />
+                                      size="7" id="exp" minlength="7" maxlength="7" required/>
                                     <label class="form-label" for="typeExp">Expiration</label>
                                   </div>
                                   <div class="form-outline">
                                     <input type="password" id="typeText2" class="form-control form-control-lg"
-                                      placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                                      placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" required/>
                                     <label class="form-label" for="typeText2">Cvv</label>
                                   </div>
                                   <button type="button" class="btn btn-info btn-lg btn-rounded">
@@ -191,10 +191,14 @@ rel="stylesheet"
                           </div>
                   </section>
 
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-primary me-md-2" type="submit" style="background-color: #5dacbd; margin-bottom: 100px; padding: 20px; font-weight: bold; color: white; font-size: small;" id="orderBtn">Complete order</button>
+                  </div>
+
               </div>
 
 
-            </div>
+            </form>
 
         
         </div>

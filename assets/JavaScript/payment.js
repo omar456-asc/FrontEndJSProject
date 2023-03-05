@@ -21,3 +21,10 @@ btn.onclick = function(){
     payBtn.disabled = false;
     payBtn.classList.add('bold');
 }
+infoBtn.onclick = function(){
+    infoForm.classList.toggle('hide');
+    payForm.classList.toggle('hide');
+    infoBtn.classList.add('bold');
+    payBtn.disabled = true;
+    payBtn.classList.remove('bold');
+}
