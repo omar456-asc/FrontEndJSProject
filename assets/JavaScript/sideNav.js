@@ -33,7 +33,7 @@ function closeNav() {
 productsCart = document.querySelector(".productsCart");
   
 let Checkout= document.querySelector(".Checkout");
-let productsCartArray=[]
+let productsCartArrayindetails=[]
 let clearbtn=document.querySelector(".clear")
   
 
@@ -43,14 +43,14 @@ let clearbtn=document.querySelector(".clear")
 
 // Check if Theres items In Local Storage
 if (localStorage.getItem("product")) {
-  productsCartArray = JSON.parse(localStorage.getItem("product"));
+  productsCartArrayindetails = JSON.parse(localStorage.getItem("product"));
 // console.log(productsCartArray)
-if(productsCartArray.length !=0){
-  addElementsToPageFrom(productsCartArray);}
+if(productsCartArrayindetails.length !=0){
+  addElementsToPageFrom(productsCartArrayindetails);}
   cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
     numberOnCart = 0;
     // console.log(productsCartArray.length);
-    cartNmber.innerHTML = productsCartArray.length;
+    cartNmber.innerHTML = productsCartArrayindetails.length;
 }
 else{
   
@@ -79,23 +79,23 @@ if (getCookie("username")) {
         quantity:1,
         Total:poductPrice
       };
-      var index = productsCartArray.findIndex(item => item.id == productID);
+      var index = productsCartArrayindetails.findIndex(item => item.id == productID);
       console.log(index)
       if(index ==-1){
-     productsCartArray.push(productObj);}
+     productsCartArrayindetails.push(productObj);}
      else{
-      productsCartArray[index].quantity+=1;
-      productsCartArray[index].Total=`$${Number(productsCartArray[index].price.replace("$", ""))*Number(productsCartArray[index].quantity)}`
+      productsCartArrayindetails[index].quantity=Number(productsCartArrayindetails[index].quantity)+1;
+      productsCartArrayindetails[index].Total=`$${Number(productsCartArrayindetails[index].price.replace("$", ""))*Number(productsCartArrayindetails[index].quantity)}`
      }
    
     
-     console.log(productsCartArray);
+     console.log(productsCartArrayindetails);
  
 
-      window.localStorage.setItem("product", JSON.stringify(productsCartArray));
+      window.localStorage.setItem("product", JSON.stringify(productsCartArrayindetails));
      
       
-  addElementsToPageFrom(productsCartArray);}
+  addElementsToPageFrom(productsCartArrayindetails);}
      
     
    
@@ -187,19 +187,19 @@ delicona.onclick=function(){
 }
 function deleteTaskWith(ID) {
  
-  productsCartArray = productsCartArray.filter((item) => item.id != ID);
+  productsCartArrayindetails = productsCartArrayindetails.filter((item) => item.id != ID);
 
-  window.localStorage.setItem("product", JSON.stringify(productsCartArray));
-  return productsCartArray;
+  window.localStorage.setItem("product", JSON.stringify(productsCartArrayindetails));
+  return productsCartArrayindetails;
 }
 
 
 
 clearbtn.addEventListener("click", ()=>{
   localStorage.removeItem("product");
-  productsCartArray=[];
+  productsCartArrayindetails=[];
   productsCart.innerHTML = "";
-  cartNmber.innerHTML = productsCartArray.length;
+  cartNmber.innerHTML = productsCartArrayindetails.length;
   let h2=document.createElement("h2")
   h2.innerHTML="The cart is empty"
   h2.className="empty"
@@ -208,7 +208,7 @@ clearbtn.addEventListener("click", ()=>{
 
   Checkout.addEventListener("click",()=>{
 if(getCookie("username")){
-  if(productsCartArray.length !=0){
+  if(productsCartArrayindetails.length !=0){
   window.location.replace("assets/HTML/checkout.html");}
   else{
     createAlert("Your cart is empty", "danger")

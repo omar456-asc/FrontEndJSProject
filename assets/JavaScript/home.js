@@ -37,7 +37,6 @@ fetch("https://dummyjson.com/products")
       stock:myData.products[index-1]["stock"],
      brand:myData.products[index-1]["brand"],
      category:myData.products[index-1]["category"],
-     largeimg:myData.products[index-1]["thumbnail"],
       images:[]
       
         
@@ -313,4 +312,6 @@ function createAlert(massage, alertType) {
          
         
        
-      
+     let clearDetails=function(){
+        localStorage.removeItem("details");
+      }
