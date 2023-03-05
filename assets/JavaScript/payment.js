@@ -31,8 +31,8 @@ cashBtn.onclick = function(){
 }
 
 infoBtn.onclick = function(){
-    infoForm.classList.toggle('hide');
-    payForm.classList.toggle('hide');
+    infoForm.classList.remove('hide');
+    payForm.classList.add('hide');
     infoBtn.classList.add('bold');
     payBtn.disabled = true;
     payBtn.classList.remove('bold');
