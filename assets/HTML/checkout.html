@@ -40,7 +40,19 @@ rel="stylesheet"
 </head>
 
 <body>
-    <div class="row" style="width: 80%; margin: auto; margin-top: 50px;">
+  <div class="row hide" style="width: 80%; margin: auto; margin-top: 50px;" id="done">
+    <div class="card" style="width: 40%; margin: auto;">
+      <img class="card-img-top" src="../images/checkout/done.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">Your order is complete!</h5>
+        <p class="card-text" style="text-align: center;">You will recieve a confirmation email with order details</p>
+        <div class="col-md-12 text-center" style="margin-top: 20px;">
+            <a class="btn btn-primary me-md-2" type="button" style="background-color: #5dacbd; padding: 20px; font-weight: bold; color: white; font-size: small;" href="../../index.html">Make another order</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row" style="width: 80%; margin: auto; margin-top: 50px;" id="allpayment">
         <form class="container-lg col-lg-6">
             <h2 style="font-weight: bold;">Check Out</h2>
 
@@ -60,7 +72,7 @@ rel="stylesheet"
                   <div class="form-check" style="margin-bottom: 30px;">
                     <input class="form-check-input" type="checkbox" id="check_offers" name="option1" checked >
                     <label class="form-check-label">Email me with news and offers</label>
-                  </div>
+                    </div>
 
                 </div>
 
@@ -109,7 +121,7 @@ rel="stylesheet"
 
                     <div class="col-md form-floating">
                         <select class="form-select" id="government" aria-label="Floating label select example">
-                          <option selected>6th of October</option>
+                          <option selected value="oct">6th of October</option>
                           <option value="alex">Alexandria</option>
                           <option value="cairo">Cairo</option>
                           <option value="giza">Giza</option>
@@ -216,8 +228,10 @@ rel="stylesheet"
 
                 <input type="text" class="col-8" id="discount" placeholder="Discount code">
                 <div class="col-4">
-                    <button class="btn btn-primary me-md-2" type="button" style="background-color: lightslategray; padding: 10px; font-weight: bold; color: white; font-size: small;">Apply</button>
+                    <button class="btn btn-primary me-md-2" id="disBtn" type="button" style="background-color: lightslategray; padding: 10px; font-weight: bold; color: white; font-size: small;">Apply</button>
                 </div>
+                <br>
+                <label id="dismsg"></label>
 
               </div>
 
@@ -226,15 +240,22 @@ rel="stylesheet"
 
               <div class="row" style="margin:auto">
 
-                <label for="subtotal" class="col-8">Subtotal:</label>
-                <label for="contactinfo" class="col-4" style="font-weight: bold;">00 EGP</label>                
+                <label for="subtotal" class="col-8">Subtotal before discount:</label>
+                <label for="subtotal" class="col-4" style="font-weight: bold;" id="subTotal"></label>                
+
+              </div>
+
+              <div class="row" style="margin:auto">
+
+                <label for="dissubtotal" class="col-8">Subtotal after discoutnt:</label>
+                <label for="dissubtotal" class="col-4" style="font-weight: bold;" id="dissubTotal"></label>                
 
               </div>
 
               <div class="row" style="margin:auto">
 
                 <label for="shipping" class="col-8">Shipping:</label>
-                <label for="contactinfo" class="col-4">Calculated at next step</label>                
+                <label for="contactinfo" class="col-4" id="shipValue">Calculated at next step</label>                
 
               </div>
 
@@ -243,7 +264,7 @@ rel="stylesheet"
               <div class="row" style="margin:auto; margin-bottom: 100px;">
 
                 <label for="total" class="col-8" style="font-weight: bold;">Total:</label>
-                <label for="contactinfo" class="col-4" style="font-weight: bold;">00 EGP</label>                
+                <label for="total" id="totalPrice" class="col-4" style="font-weight: bold;">Calculated at next step</label>                
 
               </div>
 

@@ -7,6 +7,19 @@ let visaForm = document.getElementById('visaForm');
 let infoBtn = document.getElementById('infoBtn');
 let payBtn = document.getElementById('payBtn');
 let cashMsg = document.getElementById('cashMsg');
+let orderBtn = document.getElementById('orderBtn');
+let done = document.getElementById('done');
+
+
+let user=[]
+
+user = JSON.parse(localStorage.getItem("tech"));
+
+let user_name = document.getElementById('first_name');
+user_name.value = user.name;
+
+let email = document.getElementById('contactinfo');
+email.value = user.email;
 
 visaBtn.onclick = function(){
     visaForm.classList.remove('hide');
@@ -17,13 +30,6 @@ cashBtn.onclick = function(){
     cashMsg.classList.remove('hide');
 }
 
-btn.onclick = function(){
-    infoForm.classList.toggle('hide');
-    payForm.classList.toggle('hide');
-    infoBtn.classList.remove('bold');
-    payBtn.disabled = false;
-    payBtn.classList.add('bold');
-}
 infoBtn.onclick = function(){
     infoForm.classList.toggle('hide');
     payForm.classList.toggle('hide');
@@ -33,21 +39,19 @@ infoBtn.onclick = function(){
 }
 
 
+orderBtn.onclick = function(){
+  allpayment.classList.add('hide');
+  done.classList.remove('hide');
+}
+
 
 // loop cart
-
-var items = [
-    ['Logitek', 'EGP 60.000,00', '../images/checkout/iphone11.webp'],
-    ['MSI', 'EGP 300.000,00', '../images/checkout/iphone11.webp'],
-    ['Genius', 'Rp 50.000,00', 'Genius Mouse'],
-    ['Jerry', 'Rp 30.000,00', 'Jerry Mouse']
-  ]
   
 let content = '';
-
 let productsCartArray=[]
 
 productsCartArray = JSON.parse(localStorage.getItem("product"));
+
   
 productsCartArray.forEach(p => {
     content += `
@@ -61,6 +65,9 @@ productsCartArray.forEach(p => {
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title" id="productName">${p.name}</h5>
+                      <p class="card-text" >Quantity: 
+                        <small class="text-muted" id="productPrice">${p.quantity}</small>
+                      </p>
                       <p class="card-text" >
                         <small class="text-muted" id="productPrice">${p.price}</small>
                       </p>
@@ -71,3 +78,81 @@ productsCartArray.forEach(p => {
   });
   
   document.querySelector("#shop").innerHTML = content;
+
+
+// products price
+let prodsPrice = 0;
+
+productsCartArray.forEach(item => {
+  let pri = parseFloat((item.price).replace(/\D/g, ''));
+  let qua = item.quantity;
+  prodsPrice+= (pri*qua);
+});
+
+document.querySelector("#subTotal").innerHTML = prodsPrice + ' EGP';
+document.querySelector("#dissubTotal").innerHTML = prodsPrice + ' EGP';
+
+
+// Discount
+
+let disBtn = document.getElementById('disBtn');
+let dismsg = document.getElementById('dismsg');
+
+let discountValue = 1;
+let distotal = prodsPrice;
+
+disBtn.onclick = function(){
+  let discount = document.getElementById('discount').value;
+  if(discount=='blackFriday'){
+    discountValue = 0.15;
+    dismsg.classList.add('hide');
+
+    // products price with discount
+    distotal -=(prodsPrice*discountValue);
+    document.querySelector("#dissubTotal").innerHTML = distotal + ' EGP';
+    totalPricefn();
+  }
+  else{
+    document.querySelector("#dismsg").innerHTML = 'Unvalid discount code';
+  }
+}
+
+//total price and go to payment method
+let ship = 0;
+let TPrice = 0;
+
+btn.onclick = function(){
+    infoForm.classList.toggle('hide');
+    payForm.classList.toggle('hide');
+    infoBtn.classList.remove('bold');
+    payBtn.disabled = false;
+    payBtn.classList.add('bold');
+
+  let gov = document.getElementById('government').value; 
+  switch(gov){
+    case 'alex':
+      ship=20;
+      break;
+    case 'cairo':
+      ship=30;
+      break;
+    case 'giza':
+      ship=40;
+      break;
+    case 'oct':
+      ship=45;
+      break;
+  }
+
+  document.querySelector("#shipValue").innerHTML = ship + ' EGP';
+  totalPricefn();
+}
+
+totalPricefn = function(){
+  TPrice = distotal+ship;
+  document.querySelector("#totalPrice").innerHTML =  TPrice+' EGP';
+}
+
+
+
+
