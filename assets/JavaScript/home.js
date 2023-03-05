@@ -38,14 +38,16 @@ fetch("https://dummyjson.com/products")
      brand:myData.products[index-1]["brand"],
      category:myData.products[index-1]["category"],
      largeimg:myData.products[index-1]["thumbnail"],
-      images:[
+      images:[]
+      
         
-        myData.products[index-1]["images"][0], 
-        myData.products[index-1]["images"][1],
-        myData.products[index-1]["images"][2],
-        myData.products[index-1]["images"][3],
-      ]
     };
+  myData.products[index-1]["images"].forEach(
+      element=>{
+       detailsObj.images.push(element) 
+      }
+    ) 
+    console.log(detailsObj.images)
     window.localStorage.setItem("details",JSON.stringify(detailsObj))
          if (e.target.classList.contains("card")||e.target.classList.contains("img")) {
           window.location.replace("assets/HTML/product-details.html");

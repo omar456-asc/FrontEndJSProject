@@ -22,10 +22,11 @@ rating.innerHTML=`${details.rating}`
 var stock=document.querySelector(".stock")
 stock.innerHTML=`${details.stock}`
 var largeimg = document.querySelector(".largeimg");
+largeimg.style.marginBottom = "50px";
 var img = document.querySelectorAll(".activeImg div img");
 largeimg.src=`${details.largeimg}`
 console.log(largeimg.src)
-for (let i = 0; i < img.length; i++) {
+for (let i = 0; i < details.images.length; i++) {
     img[i].src=`${details.images[i]}`
     img[i].onclick = function () {
         img.forEach(element => {
