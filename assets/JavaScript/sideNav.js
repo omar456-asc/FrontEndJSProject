@@ -63,21 +63,22 @@ if (getCookie("username")) {
     if (e.target.classList.contains("addBtn")) {
      
       const element = e.target.parentNode.parentNode;
-      
+     
       //  get data from cart
       let poductName = element.querySelector("h5").innerHTML;
       let poductPrice = element.querySelector("h6").innerHTML;
       let poductImg = element.querySelector("img").src;
       let productID = element.getAttribute("data-id");
-      
-
+      let desc=JSON.parse(localStorage.getItem("details"));
+     
       productObj = {
         id: productID,
         name: poductName,
         price: poductPrice,
         imgSrc: poductImg,
         quantity:1,
-        Total:poductPrice
+        Total:poductPrice,
+        discountPercentage:`${desc.discountPercentage}%` 
       };
       var index = productsCartArrayindetails.findIndex(item => item.id == productID);
       console.log(index)

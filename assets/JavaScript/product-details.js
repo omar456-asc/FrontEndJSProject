@@ -1,9 +1,24 @@
+var productname;
+var details;
+let cartNmber;
+let productsCartindetails;
+//Create alerts
+const pageMessages = document.getElementById("pageMessages");
 
+function createAlert(massage, alertType) {
+  let alertDiv = document.createElement("div");
+  alertDiv.classList = `alert alert-${alertType} `;
+  alertDiv.innerHTML = `${massage}`;
+  pageMessages.appendChild(alertDiv);
+  setTimeout(function () {
+    pageMessages.removeChild(alertDiv);
+  }, 1500);
+}
 if( JSON.parse(localStorage.getItem("details")) !=null){
-    let details= JSON.parse(localStorage.getItem("details"))
+     details= JSON.parse(localStorage.getItem("details"))
     
 
-var productname=document.querySelector(".product-name")
+productname=document.querySelector(".product-name")
 productname.innerHTML=details.name
 var productprice=document.querySelector(".product-price")
 productprice.innerHTML=`$${details.price}`
@@ -58,12 +73,12 @@ else{
 }
 ///////////////// ADD TO CART BTN////////////////
 var AddToCart=document.querySelector(".AddToCart")
-let productsCartindetails = document.querySelector(".productsCart");
+ productsCartindetails = document.querySelector(".productsCart");
   
   let Checkoutindetails= document.querySelector(".Checkout");
   let productsCartArrayindetails=[]
   let clearbtnindetails=document.querySelector(".clear")
-  let cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");  
+   cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");  
 
   // Check if Theres items In Local Storage
   if (localStorage.getItem("product")) {
@@ -74,17 +89,18 @@ let productsCartindetails = document.querySelector(".productsCart");
     addElementsToPageFrom(productsCartArrayindetails);}
   
       numberOnCart = 0;
-      // console.log(productsCartArray.length);
+      console.log(productsCartArrayindetails.length);
       cartNmber.innerHTML = productsCartArrayindetails.length;
   }
-  else{
-    
-  cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
   
-  }
-// if(getCookie("username")){
+if(getCookie("username")){
   AddToCart.addEventListener("click",()=>{
-  
+    createAlert(
+      `the ${details.name} has been added to cart successfully`,
+      "success"
+    );
+    //incrament cart
+   
     productObj = {
       id: `${details.id}`,
       name: details.name,
@@ -114,10 +130,8 @@ let productsCartindetails = document.querySelector(".productsCart");
          
         
         })
-// }
-// else{
-//   createAlert("You Must logIn to pay", "danger")
-// }
+}
+
     
   
   
@@ -228,7 +242,7 @@ let productsCartindetails = document.querySelector(".productsCart");
     Checkoutindetails.addEventListener("click",()=>{
   if(getCookie("username")){
     if(productsCartArrayindetails.length !=0){
-    window.location.replace("assets/HTML/checkout.html");}
+    window.location.replace("../../assets/HTML/checkout.html");}
     else{
       createAlert("Your cart is empty", "danger")
     }
@@ -254,3 +268,67 @@ function openNav() {
   function closeNav() {
    document.getElementById("mySidenav").style.width = "0"; 
   }
+///////////////////////////////////////////////////////////////////
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+let signIn = document.getElementById("signIn");
+let register = document.getElementById("register");
+let cart = document.getElementById("cart");
+console.log(cart);
+
+function checkingLogout() {
+  if (getCookie("username")) {
+    console.log((name = getCookie("username")));
+    signIn.innerHTML = `${name}`;
+    register.innerHTML = `Logout`;
+    register.setAttribute("href", "");
+
+    // No Edit
+    cart.classList.remove("d-none");
+    // alert on add to cart
+  
+
+   
+  } else {
+    signIn.setAttribute("href", "./login.html");
+    register.setAttribute("href", "./register.html");
+  }
+}
+
+checkingLogout(); // For Auto run
+
+if (!getCookie("username")) {
+  cartNmber.innerHTML = 0;
+  productsCartindetails.innerHTML=" "
+  AddToCart.addEventListener("click", () => {
+      
+  
+    createAlert("You Must logIn to add product to cart", "danger");
+  
+});
+      
+    
+  
+}
+
+
+register.addEventListener("click", () => {
+  document.location.reload();
+  checkingLogout(); // To re-check Logout
+  //document.location.href = "/";
+  document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  //// register.href = "#";
+});
