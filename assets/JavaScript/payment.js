@@ -37,32 +37,36 @@ infoBtn.onclick = function(){
 // loop cart
 
 var items = [
-    ['Logitek', 'Rp 60.000,00', 'Logitek Keyboard', 'logitek.jpeg'],
-    ['MSI', 'Rp 300.000,00', 'MSI Keyboard', 'msi.jpeg'],
-    ['Genius', 'Rp 50.000,00', 'Genius Mouse', 'genius.jpeg'],
-    ['Jerry', 'Rp 30.000,00', 'Jerry Mouse', 'jerry.jpeg']
+    ['Logitek', 'EGP 60.000,00', '../images/checkout/iphone11.webp'],
+    ['MSI', 'EGP 300.000,00', '../images/checkout/iphone11.webp'],
+    ['Genius', 'Rp 50.000,00', 'Genius Mouse'],
+    ['Jerry', 'Rp 30.000,00', 'Jerry Mouse']
   ]
   
-  let content = '';
+let content = '';
+
+let productsCartArray=[]
+
+productsCartArray = JSON.parse(localStorage.getItem("product"));
   
-  items.forEach(p => {
+productsCartArray.forEach(p => {
     content += `
             <div class="row g-0">
                   <div class="col-md-4">
                     <img 
-                      src="${p[3]}"
+                      src="${p.imgSrc}"
                       class="img-fluid rounded-start"
                     />
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title" id="productName">${p[0]}</h5>
+                      <h5 class="card-title" id="productName">${p.name}</h5>
                       <p class="card-text" >
-                        <small class="text-muted" id="productPrice">${p[2]}</small>
+                        <small class="text-muted" id="productPrice">${p.price}</small>
                       </p>
                     </div>
                   </div>
-                </div>
+                </div><br><hr class="hr" /><br>
     `
   });
   
