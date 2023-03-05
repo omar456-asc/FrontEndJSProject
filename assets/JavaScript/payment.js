@@ -8,7 +8,7 @@ let infoBtn = document.getElementById('infoBtn');
 let payBtn = document.getElementById('payBtn');
 let cashMsg = document.getElementById('cashMsg');
 let orderBtn = document.getElementById('orderBtn');
-let done = document.getElementById('done');
+let done = document.getElementById('done'); 
 
 
 let user=[]
@@ -40,6 +40,7 @@ infoBtn.onclick = function(){
 
 
 orderBtn.onclick = function(){
+  localStorage.removeItem("product");
   allpayment.classList.add('hide');
   done.classList.remove('hide');
 }
