@@ -24,6 +24,16 @@ rel="stylesheet"
 />
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+
+    <style>
+      .hide{
+            display: none;
+        }
+    </style>
+
+    <style src="../CSS/pay.css"></style>
 </head>
 
 <body>
@@ -32,14 +42,14 @@ rel="stylesheet"
             <h2 style="font-weight: bold;">Check Out</h2>
 
             <div class="btn-group shadow-0" role="group" style="margin-bottom: 10px;">
-                <button type="button" class="btn btn-link" data-mdb-color="dark">Cart</button>
-                <button type="button" class="btn btn-link" data-mdb-color="dark" style="font-weight: bold;">Information</button>
-                <button disabled type="button" class="btn btn-link" data-mdb-color="dark">Payment</button>
+                <button type="button" class="btn btn-link" data-mdb-color="dark" id="cartBtn">Cart</button>
+                <button type="button" class="btn btn-link" data-mdb-color="dark" style="font-weight: bold;" id="infoBtn">Information</button>
+                <button disabled type="button" class="btn btn-link" data-mdb-color="dark" id="payBtn">Payment</button>
             </div>
-            
-            <form action="">
 
-                <div class="form-group" style="margin-top: 30px;">
+            <!-- Information form -->
+            <div id="infoForm">
+                <div class="form-group" style="margin-top: 30px;" >
 
                   <label for="contactinfo" style="margin-bottom: 3px; font-size: large;">Contact information:</label>
                   <input type="text" class="form-control" id="contactinfo" style="margin-bottom: 3px;" placeholder="Email or phone number">
@@ -122,13 +132,72 @@ rel="stylesheet"
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary me-md-2" type="button" style="background-color: #5dacbd; margin-bottom: 100px; padding: 20px; font-weight: bold; color: white; font-size: small;">Continue to shipping</button>
+                  <button class="btn btn-primary me-md-2" type="button" style="background-color: #5dacbd; margin-bottom: 100px; padding: 20px; font-weight: bold; color: white; font-size: small;" id="shipBtn">Continue to shipping</button>
                 </div>
-                </form>
+              </div>
+
+              <!-- payment form -->
+              <div id="payForm" class="hide">
+
+                <div class="form-group" style="margin-top: 30px;" >
+
+                  <label for="contactinfo" style="margin-bottom: 3px; font-size: large; font-weight: bold;">Choose payment method:</label><hr>
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-info" id="cashBtn">Cash on Delivery</button>
+                    <button type="button" class="btn btn-info" id="visaBtn">Pay with VISA</button>
+                  </div>
+                  
+                  <section class="gradient-custom hide" id="visaForm" style="margin-top: 10px; margin-bottom: 20px;">
+                          <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-4">
+                              <form>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                  <div class="form-outline">
+                                    <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                                      placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                                    <label class="form-label" for="typeText">Card Number</label>
+                                  </div>
+                                  <img src="https://img.icons8.com/color/48/000000/visa.png" alt="visa" width="64px" />
+                                </div>
+                  
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                  <div class="form-outline">
+                                    <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                                      placeholder="Cardholder's Name" />
+                                    <label class="form-label" for="typeName">Cardholder's Name</label>
+                                  </div>
+                                </div>
+                  
+                                <div class="d-flex justify-content-between align-items-center pb-2">
+                                  <div class="form-outline">
+                                    <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YYYY"
+                                      size="7" id="exp" minlength="7" maxlength="7" />
+                                    <label class="form-label" for="typeExp">Expiration</label>
+                                  </div>
+                                  <div class="form-outline">
+                                    <input type="password" id="typeText2" class="form-control form-control-lg"
+                                      placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                                    <label class="form-label" for="typeText2">Cvv</label>
+                                  </div>
+                                  <button type="button" class="btn btn-info btn-lg btn-rounded">
+                                    <i class="fas fa-arrow-right"></i>
+                                  </button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                  </section>
+
+              </div>
+
+
+            </div>
+
+        
         </div>
 
 
-
+        <!-- list of Products and discount -->
         <div class="container-lg col-lg-6" style="background-color: azure;">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
@@ -191,5 +260,7 @@ rel="stylesheet"
     </div>
     
 </body>
+
+<script src="../JavaScript/payment.js"></script>
 
 </html>
