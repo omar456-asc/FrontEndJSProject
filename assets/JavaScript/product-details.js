@@ -2,6 +2,10 @@ var productname;
 var details;
 let cartNmber;
 let productsCartindetails;
+let index;
+let productDetailsQuantity;
+productDetailsQuantity=document.querySelector(".typeNumber");
+
 //Create alerts
 const pageMessages = document.getElementById("pageMessages");
 
@@ -16,6 +20,7 @@ function createAlert(massage, alertType) {
 }
 if( JSON.parse(localStorage.getItem("details")) !=null){
      details= JSON.parse(localStorage.getItem("details"))
+     
     
 
 productname=document.querySelector(".product-name")
@@ -84,17 +89,20 @@ var AddToCart=document.querySelector(".AddToCart")
   if (localStorage.getItem("product")) {
     productsCartArrayindetails = JSON.parse(localStorage.getItem("product"));
     
-  console.log(productsCartArrayindetails)
+  // console.log(productsCartArrayindetails)
   if(productsCartArrayindetails.length !=0){
+    console.log(productDetailsQuantity.value)
+
     addElementsToPageFrom(productsCartArrayindetails);}
   
       numberOnCart = 0;
-      console.log(productsCartArrayindetails.length);
+      // console.log(productsCartArrayindetails.length);
       cartNmber.innerHTML = productsCartArrayindetails.length;
   }
   
 if(getCookie("username")){
   AddToCart.addEventListener("click",()=>{
+    productDetailsQuantity.value++;
     createAlert(
       `the ${details.name} has been added to cart successfully`,
       "success"
@@ -110,31 +118,52 @@ if(getCookie("username")){
       Total:`$${details.price}`
     };
         
-          var index = productsCartArrayindetails.findIndex(item => item.id == details.id);
-          console.log(index)
+          if(localStorage.getItem("product")!=null){
+           index = productsCartArrayindetails.findIndex(item => item.id == details.id);
           if(index ==-1){
          productsCartArrayindetails.push(productObj);}
          else{
           productsCartArrayindetails[index].quantity=Number(productsCartArrayindetails[index].quantity)+1;
           productsCartArrayindetails[index].Total=`$${Number(productsCartArrayindetails[index].price.replace("$", ""))*Number(productsCartArrayindetails[index].quantity)}`
-         }
+          
+        }}else{
+          productsCartArrayindetails.push(productObj); 
+        }
        
         
-         console.log(productsCartArrayindetails);
+        //  console.log(productsCartArrayindetails);
      
     
           window.localStorage.setItem("product", JSON.stringify(productsCartArrayindetails));
-         
+          
+          
           
       addElementsToPageFrom(productsCartArrayindetails);
          
         
         })
 }
+function changeQuantity(){
+  if(localStorage.getItem("product")!=null){
+  productsCartArrayindetails = JSON.parse(localStorage.getItem("product"))
+  index = productsCartArrayindetails.findIndex(item => item.id == details.id);
+  if(index !=-1){
+  productDetailsQuantity.value=productsCartArrayindetails[index].quantity;}
+  else{
+    productDetailsQuantity.value="0";
+  }
+}
+else{
+  productDetailsQuantity.value="0"
+}
+}
+
+
+
 
     
   
-  
+  changeQuantity();
   
   
   function addElementsToPageFrom(productsCartArrayindetails) {
@@ -213,7 +242,7 @@ if(getCookie("username")){
       productsCartArrayindetails= deleteTaskWith(item.id);
       productsCartArrayindetails.push(item);
     window.localStorage.setItem("product", JSON.stringify(productsCartArrayindetails));
-    
+    changeQuantity()
     }
     });
     
@@ -223,12 +252,14 @@ if(getCookie("username")){
     productsCartArrayindetails = productsCartArrayindetails.filter((item) => item.id != ID);
   
     window.localStorage.setItem("product", JSON.stringify(productsCartArrayindetails));
+    changeQuantity()
     return productsCartArrayindetails;
   }
   
   
   
   clearbtnindetails.addEventListener("click", ()=>{
+   productDetailsQuantity.value="0"
     localStorage.removeItem("product");
     productsCartArrayindetails=[];
     productsCartindetails.innerHTML = "";
@@ -237,6 +268,7 @@ if(getCookie("username")){
     h2.innerHTML="The cart is empty"
     h2.className="empty"
     productsCartindetails.append(h2)
+ 
   });
   
     Checkoutindetails.addEventListener("click",()=>{
