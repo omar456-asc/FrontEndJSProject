@@ -43,6 +43,7 @@ textarea:invalid {
 textarea.form-control,
 textarea.form-control:focus {
   height: 100px;
+  resize: none;
 }
 #contact-section .btn {
   padding: 12px 16px;
