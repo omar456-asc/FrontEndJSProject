@@ -86,16 +86,16 @@ let prodsPrice = 0;
 let prodDis = 0;
 
 productsCartArray.forEach(item => {
-  let pri = parseFloat((item.price).replace(/[^\d\.]*/g, ''));
-  prodDis = parseFloat((item.discountPercentage).replace(/[^\d\.]*/g, ''));
+  let pri = parseFloat((item.price).replace(/[^\d\.]*/g, '')).toFixed(2);
+  prodDis = parseFloat((item.discountPercentage).replace(/[^\d\.]*/g, '')).toFixed(2);
   let total = pri - ((pri*prodDis)/100);
   console.log(prodDis);
   let qua = item.quantity;
   prodsPrice+= (total*qua);
 });
 
-document.querySelector("#subTotal").innerHTML = prodsPrice + ' EGP';
-document.querySelector("#dissubTotal").innerHTML = prodsPrice + ' EGP';
+document.querySelector("#subTotal").innerHTML = prodsPrice.toFixed(2) + ' EGP';
+document.querySelector("#dissubTotal").innerHTML = prodsPrice.toFixed(2) + ' EGP';
 
 
 // coupon
@@ -130,7 +130,7 @@ disBtn.onclick = function(){
   if(discountValue<1){
     distotal -=(prodsPrice*discountValue);
   }
-  document.querySelector("#dissubTotal").innerHTML = distotal + ' EGP';
+  document.querySelector("#dissubTotal").innerHTML = distotal.toFixed(2) + ' EGP';
   totalPricefn();
 }
 
@@ -161,13 +161,13 @@ btn.onclick = function(){
       break;
   }
 
-  document.querySelector("#shipValue").innerHTML = ship + ' EGP';
+  document.querySelector("#shipValue").innerHTML = ship.toFixed(2) + ' EGP';
   totalPricefn();
 }
 
 totalPricefn = function(){
   TPrice = distotal+ship;
-  document.querySelector("#totalPrice").innerHTML =  TPrice+' EGP';
+  document.querySelector("#totalPrice").innerHTML =  TPrice.toFixed(2)+' EGP';
 }
 
 
