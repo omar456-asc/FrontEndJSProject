@@ -285,7 +285,7 @@ footer li span {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 2;
+  z-index: 5;
   top: 0;
   right: 0;
   background-color: white;
@@ -293,7 +293,9 @@ footer li span {
   transition: 0.5s;
   padding-top: 60px;
 }
-
+.sidenavWidth{
+  width:350px;
+}
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -323,6 +325,9 @@ footer li span {
   }
   .sidenav a {
     font-size: 18px;
+  }
+  .sidenavWidth{
+    width: 250px !important;
   }
 }
 hr {

@@ -1,13 +1,37 @@
 
 function openNav() {
-  document.getElementById("mySidenav").style.width = "350px";
+  if( document.getElementById("mySidenav").style.width == "350px"){
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  else{
+    document.getElementById("mySidenav").style.width = "350px";
+  }
+
+//     if(document.getElementById("mySidenav").style.width == "0px"){
+      
+//       if(window.innerWidth===500){
+       
+//         document.getElementById("mySidenav").style.width = "250px";
+//         document.getElementsByTagName("input").width="150px"
+//       }
+//       else{
+//         document.getElementById("mySidenav").style.width = "350px";
+//       }
+    
+//   }
+//   else{
+//     document.getElementById("mySidenav").style.width = "0px";
+//   }
+  
+
 }
 
 function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+ document.getElementById("mySidenav").style.width = "0"; 
 }
 // to access the cart
 productsCart = document.querySelector("div.productsCart.container");
+let Checkout= document.querySelector(".Checkout");
 let productsCartArray=[]
 let clearbtn=document.querySelector(".clear")
 
@@ -164,3 +188,12 @@ clearbtn.addEventListener("click", ()=>{
   productsCart.innerHTML = "";
   cartNmber.innerHTML = productsCartArray.length;
 });
+
+  Checkout.addEventListener("click",()=>{
+if(getCookie("username")){
+  window.location.replace("assets/HTML/checkout.html");
+}
+    else{
+      createAlert("You Must logIn to pay", "danger")
+    }
+  })

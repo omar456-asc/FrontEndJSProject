@@ -178,7 +178,7 @@ function checkingLogout() {
     cart.classList.remove("d-none");
     // alert on add to cart
     cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
-    numberOnCart = 0;
+   let numberOnCart = 0;
     cartNmber.innerHTML = 0;
 
     products.addEventListener("click", (e) => {
