@@ -83,11 +83,15 @@ productsCartArray.forEach(p => {
 
 // products price
 let prodsPrice = 0;
+let prodDis = 0;
 
 productsCartArray.forEach(item => {
-  let pri = parseFloat((item.price).replace(/\D/g, ''));
+  let pri = parseFloat((item.price).replace(/[^\d\.]*/g, ''));
+  prodDis = parseFloat((item.discountPercentage).replace(/[^\d\.]*/g, ''));
+  let total = pri - ((pri*prodDis)/100);
+  console.log(prodDis);
   let qua = item.quantity;
-  prodsPrice+= (pri*qua);
+  prodsPrice+= (total*qua);
 });
 
 document.querySelector("#subTotal").innerHTML = prodsPrice + ' EGP';
