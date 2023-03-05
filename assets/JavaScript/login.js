@@ -7,7 +7,7 @@ if(!(localStorage.getItem("tech"))){
     let arr = [];
     localStorage.setItem("tech",JSON.stringify(arr));
   }else{
-    console.log("Local storage already found")
+    // console.log("Local storage already found")
 }
 
 // Encryption & Decryption

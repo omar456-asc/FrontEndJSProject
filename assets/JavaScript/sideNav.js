@@ -34,7 +34,6 @@ productsCart = document.querySelector("div.productsCart.container");
 let Checkout= document.querySelector(".Checkout");
 let productsCartArray=[]
 let clearbtn=document.querySelector(".clear")
-
   
 
 
@@ -48,7 +47,13 @@ if (localStorage.getItem("product")) {
   addElementsToPageFrom(productsCartArray);
   cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
     numberOnCart = 0;
+    // console.log(productsCartArray.length);
     cartNmber.innerHTML = productsCartArray.length;
+}
+else{
+  
+cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
+
 }
 
 if (getCookie("username")) {
