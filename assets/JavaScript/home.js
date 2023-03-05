@@ -1,7 +1,9 @@
 // ///////////// start products fetch data /////////
+let myData;
 fetch("https://dummyjson.com/products")
   .then((res) => {
-    let myData = res.json();
+    myData = res.json();
+    
     return myData;
   })
   .then((myData) => {
@@ -20,6 +22,40 @@ fetch("https://dummyjson.com/products")
     for (let i = 0; i < 10; i++) {
       createCard(myData.products[i]);
     }
+    /////////////////// add details data to local storage////////////
+    let index;
+    products.addEventListener("click", (e) => {
+      let targ= e.target.parentNode.parentNode;
+     index=targ.getAttribute("data-id");
+     let detailsObj={
+      id:myData.products[index-1]["id"],
+      name:myData.products[index-1]["title"],
+      description:myData.products[index-1]["description"],
+      price: myData.products[index-1]["price"],
+      discountPercentage:myData.products[index-1]["discountPercentage"],
+      rating:myData.products[index-1]["rating"],
+      stock:myData.products[index-1]["stock"],
+     brand:myData.products[index-1]["brand"],
+     category:myData.products[index-1]["category"],
+     largeimg:myData.products[index-1]["thumbnail"],
+      images:[]
+      
+        
+    };
+  myData.products[index-1]["images"].forEach(
+      element=>{
+       detailsObj.images.push(element) 
+      }
+    ) 
+    console.log(detailsObj.images)
+    window.localStorage.setItem("details",JSON.stringify(detailsObj))
+         if (e.target.classList.contains("card")||e.target.classList.contains("img")) {
+          window.location.replace("assets/HTML/product-details.html");
+        }
+
+    })
+   
+    ////////////// end of details local storage////////////////////
     filterProduct("all");
   })
   .then(() => {
@@ -37,10 +73,10 @@ fetch("https://dummyjson.com/products")
   });
 //bootstrap card
 let cardContainer;
-
+let card;
 let createCard = (data) => {
   //Create Card
-  let card = document.createElement("div");
+ card = document.createElement("div");
   //Card should have category and should stay hidden initially
   card.classList.add("card", data.category, "hide");
   card.setAttribute("data-id", data.id);
@@ -50,6 +86,7 @@ let createCard = (data) => {
   imgContainer.classList.add("image-container");
   //img tag
   let image = document.createElement("img");
+  image.className="img"
   image.setAttribute("src", data.images[0]);
   imgContainer.appendChild(image);
   card.appendChild(imgContainer);
@@ -165,11 +202,11 @@ function getCookie(cname) {
 let signIn = document.getElementById("signIn");
 let register = document.getElementById("register");
 let cart = document.getElementById("cart");
-// console.log(cart);
+console.log(cart);
 
 function checkingLogout() {
   if (getCookie("username")) {
-    // console.log((name = getCookie("username")));
+    console.log((name = getCookie("username")));
     signIn.innerHTML = `${name}`;
     register.innerHTML = `Logout`;
     register.setAttribute("href", "");
@@ -178,7 +215,7 @@ function checkingLogout() {
     cart.classList.remove("d-none");
     // alert on add to cart
     cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
-   let numberOnCart = 0;
+    numberOnCart = 0;
     cartNmber.innerHTML = 0;
 
     products.addEventListener("click", (e) => {
@@ -193,7 +230,7 @@ function checkingLogout() {
         numberOnCart++;
         cartNmber.innerHTML = numberOnCart;
 
-        console.log(cartNmber);
+        // console.log(cartNmber);
       }
     });
   } else {
@@ -206,7 +243,7 @@ checkingLogout(); // For Auto run
 
 if (!getCookie("username")) {
   products = document.getElementById("products");
-  // console.log(products);
+  console.log(products);
   products.addEventListener("click", (e) => {
     if (e.target.classList.contains("addBtn")) {
       // alert("You can't add Unless you login ");
@@ -250,3 +287,30 @@ function createAlert(massage, alertType) {
     pageMessages.removeChild(alertDiv);
   }, 1500);
 }
+///////////////////////////product-details/////////////////////////////
+ 
+      // products.addEventListener("click", (e) => {
+      //  let targ= e.target.parentNode.parentNode;
+      // let index=targ.getAttribute("data-id")-1;
+      // console.log(myData.products[1])
+      // //  let detailsObj = {
+      // //     id: products[index]
+      // //     // name: data[index].title,
+      // //     // price: data[index].price,
+      // //     // imgSrc: 'https://i.dummyjson.com/data/products/1/1.jpg',
+      // //     // quantity:1,
+      // //     // Total:data.price
+      // //   };
+      
+      // //   let details=[]
+      // // details.push(detailsObj)
+      // //   window.localStorage.setItem("details", JSON.stringify(details));
+      // //  if (e.target.classList.contains("card")||e.target.classList.contains("img")) {
+      // //     window.location.replace("assets/HTML/product-details.html");
+      // //   }
+      
+      // })
+         
+        
+       
+      
