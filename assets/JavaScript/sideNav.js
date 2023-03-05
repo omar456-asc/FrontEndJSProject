@@ -30,7 +30,8 @@ function closeNav() {
  document.getElementById("mySidenav").style.width = "0"; 
 }
 // to access the cart
-productsCart = document.querySelector("div.productsCart.container");
+productsCart = document.querySelector(".productsCart");
+  
 let Checkout= document.querySelector(".Checkout");
 let productsCartArray=[]
 let clearbtn=document.querySelector(".clear")
@@ -44,7 +45,8 @@ let clearbtn=document.querySelector(".clear")
 if (localStorage.getItem("product")) {
   productsCartArray = JSON.parse(localStorage.getItem("product"));
 // console.log(productsCartArray)
-  addElementsToPageFrom(productsCartArray);
+if(productsCartArray.length !=0){
+  addElementsToPageFrom(productsCartArray);}
   cartNmber = document.querySelector(".badge.badge-pill.badge-danger.notify");
     numberOnCart = 0;
     // console.log(productsCartArray.length);
@@ -93,9 +95,9 @@ if (getCookie("username")) {
       window.localStorage.setItem("product", JSON.stringify(productsCartArray));
      
       
-  addElementsToPageFrom(productsCartArray);
+  addElementsToPageFrom(productsCartArray);}
      
-    }
+    
    
   });
 }
@@ -162,6 +164,12 @@ delicona.onclick=function(){
   deleteTaskWith(item.id);
   productsCartArray = JSON.parse(localStorage.getItem("product"));
   cartNmber.innerHTML = productsCartArray.length;
+  if(productsCartArray.length==0){
+    let h2=document.createElement("h2")
+    h2.innerHTML="The cart is empty"
+    h2.className="empty"
+    productsCart.append(h2)
+  }
   }
   itemqun.onchange=function(){
    productsCartArray=window.localStorage.getItem("product");
@@ -192,11 +200,19 @@ clearbtn.addEventListener("click", ()=>{
   productsCartArray=[];
   productsCart.innerHTML = "";
   cartNmber.innerHTML = productsCartArray.length;
+  let h2=document.createElement("h2")
+  h2.innerHTML="The cart is empty"
+  h2.className="empty"
+  productsCart.append(h2)
 });
 
   Checkout.addEventListener("click",()=>{
 if(getCookie("username")){
-  window.location.replace("assets/HTML/checkout.html");
+  if(productsCartArray.length !=0){
+  window.location.replace("assets/HTML/checkout.html");}
+  else{
+    createAlert("Your cart is empty", "danger")
+  }
 }
     else{
       createAlert("You Must logIn to pay", "danger")
