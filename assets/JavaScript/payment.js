@@ -31,8 +31,8 @@ cashBtn.onclick = function(){
 }
 
 infoBtn.onclick = function(){
-    infoForm.classList.toggle('hide');
-    payForm.classList.toggle('hide');
+    infoForm.classList.remove('hide');
+    payForm.classList.add('hide');
     infoBtn.classList.add('bold');
     payBtn.disabled = true;
     payBtn.classList.remove('bold');
@@ -107,15 +107,19 @@ disBtn.onclick = function(){
   if(discount=='blackFriday'){
     discountValue = 0.15;
     dismsg.classList.add('hide');
-
-    // products price with discount
-    distotal -=(prodsPrice*discountValue);
-    document.querySelector("#dissubTotal").innerHTML = distotal + ' EGP';
-    totalPricefn();
+  }
+  else if(discount=='Shehab' || discount=='Omar' || discount=='SarSor' || discount=='Mahmoud' || discount=='BakBok'){
+    discountValue = 0.5;
+    dismsg.classList.add('hide');
   }
   else{
     document.querySelector("#dismsg").innerHTML = 'Unvalid discount code';
   }
+
+  // products price with discount
+  distotal -=(prodsPrice*discountValue);
+  document.querySelector("#dissubTotal").innerHTML = distotal + ' EGP';
+  totalPricefn();
 }
 
 //total price and go to payment method
