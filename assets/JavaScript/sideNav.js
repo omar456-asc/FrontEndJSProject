@@ -1,10 +1,10 @@
 
 function openNav() {
-  if( document.getElementById("mySidenav").style.width == "350px"){
+  if( document.getElementById("mySidenav").style.width == "320px"){
     document.getElementById("mySidenav").style.width = "0";
   }
   else{
-    document.getElementById("mySidenav").style.width = "350px";
+    document.getElementById("mySidenav").style.width = "320px";
   }
 
 //     if(document.getElementById("mySidenav").style.width == "0px"){
