@@ -46,7 +46,7 @@ fetch("https://dummyjson.com/products")
        detailsObj.images.push(element) 
       }
     ) 
-    console.log(detailsObj.images)
+    // console.log(detailsObj.images)
     window.localStorage.setItem("details",JSON.stringify(detailsObj))
          if (e.target.classList.contains("card")||e.target.classList.contains("img")) {
           window.location.replace("assets/HTML/product-details.html");
@@ -201,11 +201,11 @@ function getCookie(cname) {
 let signIn = document.getElementById("signIn");
 let register = document.getElementById("register");
 let cart = document.getElementById("cart");
-console.log(cart);
+// console.log(cart);
 
 function checkingLogout() {
   if (getCookie("username")) {
-    console.log((name = getCookie("username")));
+    // console.log((name = getCookie("username")));
     signIn.innerHTML = `${name}`;
     register.innerHTML = `Logout`;
     register.setAttribute("href", "");
@@ -242,7 +242,7 @@ checkingLogout(); // For Auto run
 
 if (!getCookie("username")) {
   products = document.getElementById("products");
-  console.log(products);
+  // console.log(products);
   products.addEventListener("click", (e) => {
     if (e.target.classList.contains("addBtn")) {
       // alert("You can't add Unless you login ");

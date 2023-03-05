@@ -81,7 +81,7 @@ if (getCookie("username")) {
         discountPercentage:`${desc.discountPercentage}%` 
       };
       var index = productsCartArrayindetails.findIndex(item => item.id == productID);
-      console.log(index)
+      // console.log(index)
       if(index ==-1){
      productsCartArrayindetails.push(productObj);}
      else{
@@ -90,7 +90,7 @@ if (getCookie("username")) {
      }
    
     
-     console.log(productsCartArrayindetails);
+    //  console.log(productsCartArrayindetails);
  
 
       window.localStorage.setItem("product", JSON.stringify(productsCartArrayindetails));

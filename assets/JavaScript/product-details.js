@@ -50,7 +50,7 @@ element.style.width="120px"
 element.style.height="100px"
 })
 largeimg.src=`${details.images[0]}`
-console.log(largeimg.src)
+// console.log(largeimg.src)
 if(details.images.length>img.length){
 for (let i = 0; i < img.length; i++) {
     img[i].src=`${details.images[i]}`
@@ -91,7 +91,7 @@ var AddToCart=document.querySelector(".AddToCart")
     
   // console.log(productsCartArrayindetails)
   if(productsCartArrayindetails.length !=0){
-    console.log(productDetailsQuantity.value)
+    // console.log(productDetailsQuantity.value)
 
     addElementsToPageFrom(productsCartArrayindetails);}
   
@@ -319,11 +319,11 @@ function getCookie(cname) {
 let signIn = document.getElementById("signIn");
 let register = document.getElementById("register");
 let cart = document.getElementById("cart");
-console.log(cart);
+// console.log(cart);
 
 function checkingLogout() {
   if (getCookie("username")) {
-    console.log((name = getCookie("username")));
+    // console.log((name = getCookie("username")));
     signIn.innerHTML = `${name}`;
     register.innerHTML = `Logout`;
     register.setAttribute("href", "");
