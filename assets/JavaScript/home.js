@@ -312,6 +312,4 @@ function createAlert(massage, alertType) {
          
         
        
-     let clearDetails=function(){
-        localStorage.removeItem("details");
-      }
+     
