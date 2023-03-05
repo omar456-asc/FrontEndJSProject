@@ -3,6 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+.btn{
+    background-color: black !important;
+  }
+.btn:hover{
+    background-color: blue !important;
+}
 .activeImg div img.active {
     opacity: 1;
 }

@@ -38,10 +38,10 @@
 .menu-btns-edit {
   text-align: center;
 }
-/*  Un comment this and all buttons will get black instead of bootstrap blue */
-/* .btn{
+
+ .btn{
   background-color: black;
-} */
+}
 /* End Shehab */
 .header-top-light .nav-link {
   color: #969696;
