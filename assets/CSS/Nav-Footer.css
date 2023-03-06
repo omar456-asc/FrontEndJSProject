@@ -166,7 +166,7 @@
   right: -10px;
 }
 /*################################### Footter ################################ */
-footer {
+/* footer {
   padding: 7em 0;
 }
 footer li {
@@ -282,8 +282,8 @@ footer li span {
 .block-24 a.img {
   width: 100%;
   height: 100px;
-  display: block;
-}
+  display: block; 
+}*/
 /* ///////////////////////////Side-Nav/////////////////   */
 .sidenav {
   height: 100%;
