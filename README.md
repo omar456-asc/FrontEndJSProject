@@ -42,6 +42,7 @@ Welcome to our professional JavaScript Website
     * You will be asked to enter your info
     * Then Payment details 
     * Then Proceed
+    * Thanks for Purchase will appear
     * User is able to return and continue shipping any time in these phases
     * P.S Don't forget to use our Promo code <b>blackFriday</b> to get your discount 😁
 - **Cart**
@@ -53,7 +54,11 @@ Welcome to our professional JavaScript Website
 ## ⭐ General Features
 - Website is completely responsive and fits all screens
 - User Friendly UI
-- Data like products are fetched from JSON using AJAX 
+- Data like products are fetched from JSON using AJAX as dummy data
+- User can't add to cart if not logged in
+- Can't checkout if no products in cart
+- JSON, Cookies and Local storage are used to assist in development
+- 
     
 # Developers
 - [Mariam Bakry](https://github.com/MariamBakry)
