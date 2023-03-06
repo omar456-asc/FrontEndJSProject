@@ -25,6 +25,7 @@ fetch("https://dummyjson.com/products")
     /////////////////// add details data to local storage////////////
     let index;
     products.addEventListener("click", (e) => {
+      if(e.target.classList.contains("img")){
       let targ= e.target.parentNode.parentNode;
      index=targ.getAttribute("data-id");
      let detailsObj={
@@ -48,11 +49,11 @@ fetch("https://dummyjson.com/products")
     ) 
     // console.log(detailsObj.images)
     window.localStorage.setItem("details",JSON.stringify(detailsObj))
-         if (e.target.classList.contains("card")||e.target.classList.contains("img")) {
+         if (e.target.classList.contains("img")) {
           window.location.replace("assets/HTML/product-details.html");
         }
 
-    })
+      }    })
    
     ////////////// end of details local storage////////////////////
     filterProduct("all");
@@ -102,7 +103,7 @@ let createCard = (data) => {
   price.innerText = "$" + data.price;
   container.appendChild(price);
   button = document.createElement("Button");
-  button.classList = "btn btn-primary addBtn";
+  button.classList = "btn addBtn";
   button.innerText = "Add to cart";
 
   container.appendChild(button);

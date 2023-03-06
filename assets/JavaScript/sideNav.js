@@ -134,7 +134,8 @@ function addElementsToPageFrom(productsCartArray) {
     divcol2.appendChild(itemPrice);
 productsCart.append(div);
 let hr=document.createElement("hr");
-productsCart.append(hr);
+hr.style.marginTop="10px"
+div.append(hr);
 let itemqun=document.createElement("input");
 itemqun.value=item.quantity;
 itemqun.setAttribute("min","1");
@@ -161,7 +162,7 @@ delicona.appendChild(delicon)
 divcol2.appendChild(delicona);
 delicona.onclick=function(){
   delicona.parentElement.parentElement.remove();
-  document.querySelector("hr").remove();
+ 
   deleteTaskWith(item.id);
   productsCartArray = JSON.parse(localStorage.getItem("product"));
   cartNmber.innerHTML = productsCartArray.length;

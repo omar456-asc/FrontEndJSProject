@@ -18,11 +18,18 @@
   <!-- <link rel="stylesheet" href="../fontawesome/all.min.css" /> -->
 
 </head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-
-
+<link rel="stylesheet" href="../CSS/reset.css" />
+    <!-- fontawsome -->
+    <!-- <link rel="stylesheet" href="assets/fontawesome/all.min.css" /> -->
+    <!-- bootstrap  -->
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css" />
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .checked {
+      color: orange;
+    }
+    </style>
 
 <body>
   <!-- #######################(Start of Nav)############################################# -->
@@ -81,8 +88,8 @@
                  
                 </div>
                  <!-- end cart details -->
-                <button class="btn btn-primary Checkout">Checkout</button>
-                <button class="btn btn-primary clear">Clear</button>
+                <button class="btn Checkout">Checkout</button>
+                <button class="btn clear">Clear</button>
               </div>
               <div class="widget-header icontext">
                 <a href="#" class="icon icon-sm rounded-circle border"
@@ -173,14 +180,31 @@
       </div>
       <div class="col-lg-6 col-sm-12 mt-5 ">
         <h1 class="product-name"></h1>
-
-        <h5 class="fw-bold border-top product-price "></h5>
-        <h5 class="brand"></h5>
-        <h5 class="category"></h5>
-        <h5 class="description"></h5>
-        <h5 class="discountPercentage"></h5>
-        <h5 class="rating"></h5>
+        <p class="brand" style="margin-bottom:1px;">Brand:</p>
+        <p class="rating" style="margin-bottom:0 ;">
+          <span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+        </p>
+        <h5 class="fw-bold border-top product-price-after "></h5>
+        <p class=" product-price d-inline " style="color: gray;
+        text-decoration: line-through;
+        "></p>
+        <span class="disc-span" style="background-color: rgb(255 0 0 / 20%);
+        margin-left:10px;
+        color: rgb(255 111 0 / 87%);
+        padding: 2px;
+        border-radius: 5px;
+    "></span>
+        
+        <h5 >Description about the product: </h5>
+        <p class="description"></p>
+     
+        
         <h5 class="stock"></h5>
+        <hr>
         <img src="https://diamu.com.bd/wp-content/uploads/2021/07/Payment-Icon-Diamu-2021.jpg"   height="54">
         <br>
         <div class=" row pt-3 ">
@@ -199,7 +223,7 @@
           </div>
         </div>
 
-        <button class="btn btn-primary mx-5 AddToCart">ADD TO CART</button>
+        <button class="btn mx-5 AddToCart">ADD TO CART</button>
         <div id="pageMessages" ></div>
 
       </div>
@@ -368,9 +392,10 @@
   <script src="../fontawesome/all.min.js"></script>
   <!-- <script src="../JavaScript/sideNav.js"></script> -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
+  <!-- bootstrap JS link -->
+  <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+  <!-- fontawesome Js Link -->
+  <script src="../fontawesome/all.min.js"></script>
 
 </body>
 

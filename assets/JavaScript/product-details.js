@@ -4,6 +4,7 @@ let cartNmber;
 let productsCartindetails;
 let index;
 let productDetailsQuantity;
+let discspan=document.querySelector(".disc-span")
 productDetailsQuantity=document.querySelector(".typeNumber");
 
 //Create alerts
@@ -25,20 +26,21 @@ if( JSON.parse(localStorage.getItem("details")) !=null){
 
 productname=document.querySelector(".product-name")
 productname.innerHTML=details.name
+var productpriceafter=document.querySelector(".product-price-after")
+productpriceafter.innerHTML=`$${Number(details.price)-(Number(details.price)*(Number(details.discountPercentage)/100))}    `
+discspan.innerHTML=`-${details.discountPercentage}%`
 var productprice=document.querySelector(".product-price")
-productprice.innerHTML=`$${details.price}`
+productprice.innerHTML=`$${details.price}   `
 var productbrand=document.querySelector(".brand")
-productbrand.innerHTML=`${details.brand}`
-var productcategory=document.querySelector(".category")
-productcategory.innerHTML=`${details.category}`
+productbrand.innerHTML+=` ${details.brand} - ${details.category} category`
+
 var productdesc=document.querySelector(".description")
-productdesc.innerHTML=`${details.description}`
-var discountPercentage=document.querySelector(".discountPercentage")
-discountPercentage.innerHTML=`${details.discountPercentage}`
+productdesc.innerHTML+=`${details.description}`
+
 var rating=document.querySelector(".rating")
-rating.innerHTML=`${details.rating}`
+rating.innerHTML+=`${details.rating}`+" Rating"
 var stock=document.querySelector(".stock")
-stock.innerHTML=`${details.stock}`
+stock.innerHTML=`Only ${details.stock} left in stock`
 var largeimg = document.querySelector(".largeimg");
 largeimg.style.marginBottom = "50px";
 largeimg.style.width="500px";
@@ -195,7 +197,8 @@ else{
       divcol2.appendChild(itemPrice);
   productsCartindetails.append(div);
   let hr=document.createElement("hr");
-  productsCartindetails.append(hr);
+  hr.style.marginTop="10px"
+  div.append(hr);
   let itemqun=document.createElement("input");
   itemqun.value=item.quantity;
   itemqun.setAttribute("min","1");
@@ -222,7 +225,7 @@ else{
   divcol2.appendChild(delicona);
   delicona.onclick=function(){
     delicona.parentElement.parentElement.remove();
-    document.querySelector("hr").remove();
+    
     deleteTaskWith(item.id);
     productsCartArrayindetails = JSON.parse(localStorage.getItem("product"));
     cartNmber.innerHTML = productsCartArrayindetails.length;

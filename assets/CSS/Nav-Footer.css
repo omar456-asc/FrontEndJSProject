@@ -41,6 +41,10 @@
 
  .btn{
   background-color: black;
+  color: white;
+}
+.btn:hover{
+  color: gray;
 }
 /* End Shehab */
 .header-top-light .nav-link {

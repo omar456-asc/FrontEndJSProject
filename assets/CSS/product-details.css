@@ -5,9 +5,11 @@
 }
 .btn{
     background-color: black !important;
+    color: white !important;
   }
 .btn:hover{
-    background-color: blue !important;
+    /* background-color: blue !important; */
+    color: gray !important;
 }
 .activeImg div img.active {
     opacity: 1;
