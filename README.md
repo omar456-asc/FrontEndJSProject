@@ -28,16 +28,19 @@ Welcome to our professional JavaScript Website
     * Dynamic horizontal scroll showing your current position in page
     * Up arrow to bump up to top page
     
+    
 - **Signup & Login / Logout**
     * Input Validation with using suitable Regex
     * User data is stored in local storage
     * Password is encrypted
     * When login success a Cookie will be created
     * When logout Cookie is deleted
-    * If you're logged in when visiting login page it will automatically direct you to home page till you logout or cookie expire (24 hour)
+    * Auto direct to home page if logged in till you logout or cookie expire (24 hour)
+
 
 - **Product details**
-    * Clicking on any product will send you to product page showing all product details with the ability to be added to cart
+    * Click on any product to show its details with the ability to be added to cart
+
 
 - **Checkout**
     * You will be asked to enter your info
@@ -46,12 +49,15 @@ Welcome to our professional JavaScript Website
     * Thanks for Purchase will appear
     * User is able to return and continue shipping any time in these phases
     * P.S Don't forget to use our Promo code <b>blackFriday</b> to get your discount 😁
+  
+  
 - **Cart**
     * You can add as many products as you want with user friendly cart with scroll
     * Adding Same product multiple times increases count number which can be decreased later
     * When logging out and then login your cart will still have the latest changes
     * You can checkout
-    
+
+
 ## ⭐ General Features
 - Website is completely responsive and fits all screens
 - User Friendly UI
@@ -59,7 +65,7 @@ Welcome to our professional JavaScript Website
 - User can't add to cart if not logged in
 - Can't checkout if no products in cart
 - JSON, Cookies and Local storage are used to assist in development
-- 
+
     
 # Developers
 - [Mariam Bakry](https://github.com/MariamBakry)
