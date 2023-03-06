@@ -74,4 +74,4 @@ Welcome to our professional JavaScript Website
 - [Shehab Hossam](https://github.com/Shehab8K)
 - [Mahmoud Mohamed](https://github.com/Mahmoud1499)
 ## <div id="demo">Demo Video</div> 
-![WebsiteImg](https://youtu.be/tw0lPzqKATg)
+[![Website Demo Video](https://img.youtube.com/vi/tw0lPzqKATg/0.jpg)](https://www.youtube.com/watch?v=tw0lPzqKATg)
