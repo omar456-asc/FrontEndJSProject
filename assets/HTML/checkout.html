@@ -46,6 +46,82 @@ rel="stylesheet"
           overflow-y: scroll;
         }
         
+        
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+
+.visaForm .card {
+    max-width: 500px;
+    margin: auto;
+    color: black;
+    border-radius: 20 px;
+}
+
+.visaForm p {
+    margin: 0px;
+}
+
+
+        .visaForm .container .h8 {
+          font-size: 30px;
+          font-weight: 800;
+          text-align: center;
+        }
+
+        .visaForm .btn.btn-primary {
+          width: 100%;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 15px;
+          background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+          border: none;
+          transition: 0.5s;
+          background-size: 200% auto;
+
+        }
+
+
+        .visaForm .btn.btn.btn-primary:hover {
+          background-position: right center;
+          color: #fff;
+          text-decoration: none;
+        } 
+
+
+
+        .visaForm .btn.btn-primary:hover .fas.fa-arrow-right {
+          transform: translate(15px);
+          transition: transform 0.2s ease-in;
+        }
+
+        .visaForm .form-control {
+    color: white;
+    background-color: #223C60;
+    border: 2px solid transparent;
+    height: 60px;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+
+.visaForm .form-control:focus {
+    color: white;
+    background-color: #0C4160;
+    border: 2px solid #2d4dda;
+    box-shadow: none;
+}
+
+.visaForm .text {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.visaForm ::placeholder {
+    font-size: 14px;
+    font-weight: 600;
+}
+        
     </style>
 
     <style src="../CSS/pay.css"></style>
@@ -178,46 +254,43 @@ rel="stylesheet"
 
                   <label class="hide" for="cashBtn" style="margin-bottom: 3px; font-size: large;" id="cashMsg">You choosed Cash on Delivery</label>
                   
-                  <section class="gradient-custom hide" id="visaForm" style="margin-top: 10px; margin-bottom: 20px;">
-                          <div class="card" style="border-radius: 15px;">
-                            <div class="card-body p-4">
-                              <form>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                  <div class="form-outline">
-                                    <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                                      placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" required/>
-                                    <label class="form-label" for="typeText">Card Number</label>
-                                  </div>
-                                  <img src="https://img.icons8.com/color/48/000000/visa.png" alt="visa" width="64px" />
+                  <div class="container p-0 hide visaForm" id="visaForm">
+                    <div class="card px-4">
+                        <p class="h8 py-3" style="text-align: center; font-weight: bold; font-size: large;">Payment Details</p>
+                        <div class="row gx-3">
+                            <div class="col-12">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Person Name</p>
+                                    <input class="form-control mb-3" type="text" placeholder="Card name">
                                 </div>
-                  
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                  <div class="form-outline">
-                                    <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
-                                      placeholder="Cardholder's Name" required/>
-                                    <label class="form-label" for="typeName">Cardholder's Name</label>
-                                  </div>
-                                </div>
-                  
-                                <div class="d-flex justify-content-between align-items-center pb-2">
-                                  <div class="form-outline">
-                                    <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YYYY"
-                                      size="7" id="exp" minlength="7" maxlength="7" required/>
-                                    <label class="form-label" for="typeExp">Expiration</label>
-                                  </div>
-                                  <div class="form-outline">
-                                    <input type="password" id="typeText2" class="form-control form-control-lg"
-                                      placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" required/>
-                                    <label class="form-label" for="typeText2">Cvv</label>
-                                  </div>
-                                  <button type="button" class="btn btn-info btn-lg btn-rounded">
-                                    <i class="fas fa-arrow-right"></i>
-                                  </button>
-                                </div>
-                              </form>
                             </div>
-                          </div>
-                  </section>
+                            <div class="col-12">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Card Number</p>
+                                    <input class="form-control mb-3" type="number" placeholder="1234 5678 435678">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Expiry</p>
+                                    <input class="form-control mb-3" type="text" minlength="6" maxlength="7" placeholder="MM/YYYY">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">CVV/CVC</p>
+                                    <input class="form-control mb-3 pt-2" type="password" minlength="3" maxlength="3" size="1" placeholder="***">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="btn btn-primary mb-3">
+                                    <span class="ps-3" id="totalPayNum" style="text-align: center;">Pay $243</span>
+                                    <span class="fas fa-arrow-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-top: 20px;">
                     <button class="btn btn-primary me-md-2" type="submit" style="background-color: #5dacbd; margin-bottom: 100px; padding: 20px; font-weight: bold; color: white; font-size: small;" id="orderBtn">Complete order</button>

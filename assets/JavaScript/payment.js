@@ -9,6 +9,7 @@ let payBtn = document.getElementById('payBtn');
 let cashMsg = document.getElementById('cashMsg');
 let orderBtn = document.getElementById('orderBtn');
 let done = document.getElementById('done'); 
+let totalPayNum = document.getElementById('totalPayNum');
 
 
 let user=[]
@@ -74,7 +75,7 @@ productsCartArray.forEach(p => {
                       </p>
                     </div>
                   </div>
-                </div><br><hr class="hr" /><br>
+                </div><hr class="hr" />
     `
   });
   
@@ -168,7 +169,10 @@ btn.onclick = function(){
 totalPricefn = function(){
   TPrice = distotal+ship;
   document.querySelector("#totalPrice").innerHTML =  TPrice.toFixed(2)+' EGP';
+  document.querySelector("#totalPayNum").innerHTML =  'Pay '+TPrice.toFixed(2)+' EGP';
 }
+
+
 
 
 
