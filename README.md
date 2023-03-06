@@ -34,6 +34,7 @@ Welcome to our professional JavaScript Website
     * Password is encrypted
     * When login success a Cookie will be created
     * When logout Cookie is deleted
+    * If you're logged in when visiting login page it will automatically direct you to home page till you logout or cookie expire (24 hour)
 
 - **Product details**
     * Clicking on any product will send you to product page showing all product details with the ability to be added to cart
