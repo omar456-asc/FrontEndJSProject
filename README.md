@@ -16,7 +16,7 @@ Welcome to our professional JavaScript Website
 - [Product details](https://omar456-asc.github.io/FrontEndJSProject/assets/HTML/product-details.html) <i>Choose different products to get their details</i>
 - [Checkout](https://omar456-asc.github.io/FrontEndJSProject/assets/HTML/checkout.html)
 - [Slided Cart](https://omar456-asc.github.io/FrontEndJSProject/) <i>Press Cart icon on navbar</i>
-## 🎥 [Watch Website Demo Video](https://github.com/omar456-asc/FrontEndJSProject/edit/main/README.md#demo)
+## 🎥 [Watch Website Demo Video](https://github.com/omar456-asc/FrontEndJSProject#demo)
 ## ⭐ Features
 - **Home**
     * Search for products (all products that apply to search query will appear)
