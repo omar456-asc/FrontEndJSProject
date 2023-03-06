@@ -206,7 +206,7 @@ let cart = document.getElementById("cart");
 
 function checkingLogout() {
   if (getCookie("username")) {
-    // console.log((name = getCookie("username")));
+    name = getCookie("username");
     signIn.innerHTML = `${name}`;
     register.innerHTML = `Logout`;
     register.setAttribute("href", "");
