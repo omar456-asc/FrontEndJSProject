@@ -12,6 +12,7 @@ Welcome to our professional JavaScript Website
 - Responsive
 - Encryption for user's password
 - Add to cart functionality
+- Search for products
 # Developers
 - [MariamBakry](https://github.com/MariamBakry)
 - [SaraHussam](https://github.com/Sarahussam77)
