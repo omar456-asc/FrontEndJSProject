@@ -162,7 +162,7 @@ delicona.appendChild(delicon)
 divcol2.appendChild(delicona);
 delicona.onclick=function(){
   delicona.parentElement.parentElement.remove();
-  document.querySelector("hr").remove();
+ 
   deleteTaskWith(item.id);
   productsCartArray = JSON.parse(localStorage.getItem("product"));
   cartNmber.innerHTML = productsCartArray.length;
