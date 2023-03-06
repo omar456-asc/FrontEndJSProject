@@ -195,7 +195,8 @@ else{
       divcol2.appendChild(itemPrice);
   productsCartindetails.append(div);
   let hr=document.createElement("hr");
-  productsCartindetails.append(hr);
+  hr.style.marginTop="10px"
+  div.append(hr);
   let itemqun=document.createElement("input");
   itemqun.value=item.quantity;
   itemqun.setAttribute("min","1");

@@ -8,6 +8,7 @@ const emailVal = document.querySelector("#email");
 const subVal = document.querySelector("#subject");
 const massageVal = document.querySelector("#message");
 
+
 contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   // validation

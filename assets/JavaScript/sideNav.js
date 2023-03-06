@@ -134,7 +134,8 @@ function addElementsToPageFrom(productsCartArray) {
     divcol2.appendChild(itemPrice);
 productsCart.append(div);
 let hr=document.createElement("hr");
-productsCart.append(hr);
+hr.style.marginTop="10px"
+div.append(hr);
 let itemqun=document.createElement("input");
 itemqun.value=item.quantity;
 itemqun.setAttribute("min","1");
